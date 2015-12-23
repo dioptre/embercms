@@ -1,0 +1,12 @@
+{
+  "apps": [
+    "client",
+    "server"
+  ],
+  "disableAnalytics": false,
+  "database": "mongo",
+  "docker": false,
+  "verbose": false,
+  "skipNpm": false,
+  "skipBower": false
+}
