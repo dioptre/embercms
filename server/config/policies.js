@@ -25,8 +25,18 @@ module.exports.policies = {
    * access)                                                                  *
    *                                                                          *
    ***************************************************************************/
-
-  '*': "hasToken",
+  '*': [
+	  'hasToken',
+	      'basicAuth',
+	          'passport',
+		      'sessionAuth',
+		          'ModelPolicy',
+			      'AuditPolicy',
+			          'OwnerPolicy',
+				      'PermissionPolicy',
+				          'RolePolicy',
+					      'CriteriaPolicy'
+						        ],
   AppController: {
     'serve': true
   },

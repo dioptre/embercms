@@ -5,5 +5,10 @@
   },
   "paths": {
     "public": "assets"
+  },
+  "generators": {
+    "modules": {
+      "permissions-api": "sails-permissions/generator"
+    }
   }
 }

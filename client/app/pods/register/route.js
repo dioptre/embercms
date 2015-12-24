@@ -8,7 +8,7 @@ export default Ember.Route.extend({
     createUser: function(model) {
       var _this = this;
       Ember.$.ajax({
-        url: '/api/v1/users',
+        url: '/auth/local/register',
         type: 'POST',
         data: JSON.stringify({
           user: {
