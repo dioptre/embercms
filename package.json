@@ -10,5 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "sane-cli": "0.0.24"
+  },
+  "devDependencies": {
+    "sane-auth": "^0.3.3"
   }
 }

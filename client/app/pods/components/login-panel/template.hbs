@@ -1,0 +1,19 @@
+{{yield}}
+{{! login form; the fields must be named "identification" and "password"; the controller action is "authenticate" }}
+<form {{action 'authenticate' on='submit'}}>
+  <div>
+    <label for="identification">Login</label>
+    {{input id='identification' placeholder='Enter Login' class='form-control' value=identification}}
+  </div>
+  <div>
+    <label for="password">Password</label>
+    {{input id='password' placeholder='Enter Password' class='form-control' type='password' value=password}}
+  </div>
+  <button type="submit">Login</button> or
+  {{#link-to 'register'}} Register{{/link-to}}
+</form>
+{{#if errorMessage}}
+  <div>
+    <strong>Login failed:</strong>{{errorMessage}}
+  </div>
+{{/if}}

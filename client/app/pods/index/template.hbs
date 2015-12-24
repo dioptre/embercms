@@ -1,1 +1,9 @@
-hi
+{{outlet}}
+<h2>Index</h2>
+
+{{#if session.isAuthenticated}}
+  <p> Welcome, {{session.user.firstName}} {{session.user.lastName}}</p>
+  <a href="#" {{ action 'invalidateSession' }}>Logout</a>
+{{else}}
+  {{login-panel}}
+{{/if}}
