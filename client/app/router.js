@@ -10,6 +10,7 @@ Router.map(function() {
   adminRouter(this);
   this.route('test');
   this.route('test2');
+  this.route('400');
 
   this.resource('user', function() {});
 
