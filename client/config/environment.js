@@ -23,6 +23,18 @@ module.exports = function(environment) {
     }
   };
 
+
+  ENV.contentSecurityPolicy =  {
+          'default-src': "'self' https://maps.googleapis.com http://localhost",
+          'font-src': "'self' *",
+          'connect-src': "'self' https://maps.googleapis.com ws://localhost:35729 ws://localhost:4200",
+          'img-src': "*",
+          'style-src': "* 'unsafe-inline'",
+          'frame-src': "*",
+          'script-src': "'self' 'unsafe-eval' 'unsafe-inline' *.googleapis.com *.gstatic.com localhost:35729 *.stripe.com https://js.stripe.com localhost:49152 maps.google.com"
+  };
+
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
