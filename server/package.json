@@ -17,6 +17,7 @@
     "node-uuid": "^1.4.7",
     "pluralize": "^1.2.1",
     "rc": "~0.5.0",
+    "redis": "^2.4.2",
     "require-all": "^2.0.0",
     "sails": "~0.11.3",
     "sails-auth": "^2.1.1",
@@ -26,6 +27,7 @@
     "sails-hook-dev": "^1.0.0",
     "sails-mongo": "^0.11.5",
     "sails-permissions": "^2.1.11",
+    "sails-redis": "^0.10.6",
     "sanitize-html": "^1.11.2"
   },
   "scripts": {

@@ -9,7 +9,19 @@ module.exports = {
 
   attributes: {
 
-    test2 : { type: 'float' }
+    test2 : { type: 'float' },
+    rand: { type: 'float', index : true} ,
+   
+    toJSON : function () {
+		var obj = this.toObject();
+		delete obj.rand;
+
+    }
+	
+  },
+  beforeValidate: function(values, cb) {
+	values.rand = Math.random();
+	cb();
   }
 };
 

@@ -149,13 +149,13 @@ function issueTokens(user, res) {
 function negotiateError (err, req, res) {
 	var action = req.param('action');
 	if (action === 'register') {
-		res.redirect('/register');
+		res.json(417, err);
 	}
 	else if (action === 'login') {
-		res.redirect('/login');
+		res.json(417, err);
 	}
 	else if (action === 'disconnect') {
-		res.redirect('back');
+		res.redirect('/');
 	}
 	else {
 		// make sure the server always returns a response to the client
