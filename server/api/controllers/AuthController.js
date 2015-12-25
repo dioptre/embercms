@@ -24,15 +24,18 @@ module.exports = {
 
     if (req.body.grant_type === 'password') {
 
-      User.findByUsername(req.body.username).exec(function(err, user) {
+      User.findByUsername(req.body.username).populate('passports').exec(function(err, user) {
         if (err) {
 	  return negotiateError(err, req, res);
         }
-        if (!user || user.length < 1) {
+        if (typeof user === 'undefined' || !user || user.length < 1) {
 	  return negotiateError('No such user', req, res);
         }
+	if (typeof user[0].passports === 'undefined' || !user[0].passports || user[0].passports.length < 1) {
+	   return negotiateError('Blocked user', req, res);
+	}
 
-        bcrypt.compare(req.body.password, user[0].password, function(err, result) {
+        bcrypt.compare(req.body.password, user[0].passports[0].password, function(err, result) {
           if (err || !result) {
 	    return negotiateError('invalidPassword', req, res);            
           } else {
@@ -124,20 +127,21 @@ module.exports = {
 };
 
 function issueTokens(user, res) {
-	var expirationTimeInMinutes = sails.config.jwt.expiration_time_in_minutes;
+	var expirationTime = sails.config.jwt.expiration_time_in_minutes * 60 //seconds;
 
 	var token = jwt.sign(user, sails.config.jwt.secret, {
-		expiresInMinutes: expirationTimeInMinutes
+		expiresIn: expirationTime //seconds
 	});
 
 	var refreshToken = jwt.sign(user, sails.config.jwt.refresh_secret, {
-		expiresInMinutes: expirationTimeInMinutes
+		expiresIn: expirationTime //seconds
 	});
 
+	delete user[0].passports;
 	res.send({
 		user: user[0],
 		access_token: token,
-		expires_in: expirationTimeInMinutes * 60, // seconds
+		expires_in: expirationTime, // seconds
 		refresh_token: refreshToken
 	});
 
