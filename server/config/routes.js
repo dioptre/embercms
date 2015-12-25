@@ -45,7 +45,14 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-   '/api/v1/auths/:action' : { controller: 'Auth', action: 'callback', skipAssets: true },
+   '/api/*': function(req, res, next) {
+    	sails.log.info(req.method, req.url);
+    	next();
+    },
+
+    'POST /signup' : {controller : 'Auth', action: 'callback'},
+
+   //'/api/v1/auths/:action' : { controller: 'Auth', action: 'callback', skipAssets: true },
 
   //This automatically serves all routes, apart from /api/** routes to ember
   //(which will be initialized in assets/index.html). This route needs to be

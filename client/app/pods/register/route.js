@@ -9,12 +9,14 @@ export default Ember.Route.extend({
       debugger;
       var _this = this;
       Ember.$.ajax({
-        url: '/auth/local/register',
+        url: '/signup',
         type: 'POST',
         data: JSON.stringify({
+	  action: 'register',
           user: {
             password: model.get('password'),
-            username: model.get('username')
+            email: model.get('email'),
+            username: model.get('username'),
           }
         }),
         contentType: 'application/json'
