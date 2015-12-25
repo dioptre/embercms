@@ -6,6 +6,7 @@ export default Ember.Route.extend({
   },
   actions: {
     createUser: function(model) {
+      debugger;
       var _this = this;
       Ember.$.ajax({
         url: '/auth/local/register',

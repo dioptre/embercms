@@ -52,6 +52,8 @@
     "broccoli-sass-source-maps": "^1.5.1",
     "ember-admin": "^0.1.0",
     "ember-cli-sass": "^5.2.1",
+    "ember-google-map": "0.0.26",
+    "linq": "^3.0.5",
     "lru-cache": "^4.0.0",
     "node-gyp": "^3.2.1",
     "node-sass": "^3.4.2",

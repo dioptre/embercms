@@ -23,6 +23,7 @@ export default Ember.Component.extend(LoginControllerMixin, {
 		
 				}
 			},function (reason) {
+				debugger;
 				console.log("Error logging in. (E_LOGIN2)");
 			});
 		}

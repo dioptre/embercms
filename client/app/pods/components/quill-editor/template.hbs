@@ -1,0 +1,53 @@
+{{!-- {{yield}} --}}
+
+<div class="quill-wrapper" style="background-color: #fff;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  box-shadow: 0px 0px 10px #ccc;
+  max-width: 600px;
+  min-width: 320px;
+  min-height: 400px;
+  width: 100%;" id="{{quillEditorId}}">
+  <!-- The toolbar container -->
+  <div id="full-toolbar" style="border-style: solid;border-width: 1px;border-color: #EEEEEE;">
+    <select title="Font" class="ql-font">
+      <option value="sans-serif" selected="">Sans Serif</option>
+      <option value="serif">Serif</option>
+      <option value="monospace">Monospace</option>
+    </select>
+    <select class="ql-size">
+      <option value="small">Small</option>
+      <option value="normal" selected>Normal</option>
+      <option value="large">Large</option>
+      <option value="huge">Huge</option>
+    </select>
+    <span class="ql-format-group">
+      <span title="Bold" class="ql-format-button ql-bold"></span>
+      <span class="ql-format-separator"></span>
+      <span title="Italic" class="ql-format-button ql-italic"></span>
+      <span class="ql-format-separator"></span>
+      <span title="Underline" class="ql-format-button ql-underline"></span>
+      <span class="ql-format-separator"></span>
+      <span title="Strikethrough" class="ql-format-button ql-strike"></span>
+    </span>
+    <span class="ql-format-group">
+      <span title="List" class="ql-format-button ql-list"></span>
+      <span class="ql-format-separator"></span>
+      <span title="Bullet" class="ql-format-button ql-bullet"></span>
+      <span class="ql-format-separator"></span>
+      <select title="Text Alignment" class="ql-align">
+        <option value="left" label="Left" selected=""></option>
+        <option value="center" label="Center"></option>
+        <option value="right" label="Right"></option>
+        <option value="justify" label="Justify"></option>
+      </select>
+    </span>
+    <span class="ql-format-group">
+      <span title="Link" class="ql-format-button ql-link"></span>
+      <span class="ql-format-separator"></span>
+      <span title="Image" class="ql-format-button ql-image"></span>
+    </span>
+  </div>
+  <!-- Create the editor container -->
+  <div id="full-editor"></div>
+</div>
