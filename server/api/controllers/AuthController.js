@@ -105,9 +105,7 @@ module.exports = {
 			negotiateError(error, req, res);
 	});
     } else {
-console.log(9);
-	    return this.login(req,res);
-		console.log(4)
+	    return this.login(req,res);		
     }
 //    sails.services.passport.callback(req, res, function (err, user) {
 //      if (err || !user) {
