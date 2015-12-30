@@ -42,6 +42,9 @@ module.exports.policies = {
   },
   UserController: {
     "create": true,
+    "findOne" : ["hasToken"],
+    "find" : ["isAdmin"],
+    "isAdmin" : ["isAdmin"],
   },
   AuthController: {
     '*': true,

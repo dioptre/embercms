@@ -121,8 +121,7 @@ module.exports = {
 
   disconnect: function (req, res) {
     sails.services.passport.disconnect(req, res);
-  }
-
+  },
 
 };
 
