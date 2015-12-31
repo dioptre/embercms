@@ -15,6 +15,10 @@ module.exports = {
 
     culture : { type: 'string' },
 
+    theme : { type: 'string' },
+
+    metadata : { type: 'string' },
+
     category : { type: 'string' },
 
     type : { type: 'string' },

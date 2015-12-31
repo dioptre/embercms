@@ -48,6 +48,13 @@ module.exports.policies = {
   },
   AuthController: {
     '*': true,
+  },
+  PageController: {
+    "create" : ["isAdmin"],
+    "find" : true,
+    "update" : ["isAdmin"],
+    "destroy" : ["isAdmin"],
+    "findOne" : ["isAdmin"],
   }
 
   /***************************************************************************
