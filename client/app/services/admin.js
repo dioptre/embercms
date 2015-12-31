@@ -5,7 +5,7 @@ export default EmberAdminServiceAdmin.extend({
   namespace: '',
 //  includedModels: null,
 //  excludedModels: null
-//excludedColumns: {
-//  'project': ['dateCreated']
-//}
+excludedColumns: {
+  'page': ['description']
+}
 });

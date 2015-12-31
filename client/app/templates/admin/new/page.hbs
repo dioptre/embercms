@@ -7,11 +7,15 @@
         <label>
           {{column}}
           {{admin-input record=this columnValue=column}}
-	  {{quill-editor body=this.title}}
         </label>
       </div>
     {{/each}}
-
+    <div class="model-column description">
+        <label>
+	    description
+	    {{quill-editor body=model.description}}
+	</label>
+    </div>
     {{async-button action="save" default="Save" pending="Saving..." fulfilled="Saved" rejected="Error" class="save"}}
     <button {{action "cancel"}} class="cancel">Cancel</button>
   </form>
