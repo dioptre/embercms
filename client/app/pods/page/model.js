@@ -1,6 +1,10 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+  _id: function() {
+	if (typeof this.get('id') === 'string')
+		this.set('title', this.get('id'));
+  }.observes('id').on('init'),
   title: DS.attr('string'),
   description: DS.attr('string'),
   culture: DS.attr('string'),

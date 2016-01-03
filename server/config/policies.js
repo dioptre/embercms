@@ -55,6 +55,12 @@ module.exports.policies = {
     "update" : ["isAdmin"],
     "destroy" : ["isAdmin"],
     "findOne" : ["isAdmin"],
+  },
+  AmazonController: {
+    "sign" : ["hasToken"]
+  },
+  PhotoController: {
+	'*': true
   }
 
   /***************************************************************************

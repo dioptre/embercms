@@ -4,9 +4,9 @@ var uuid = require('node-uuid');
 var Enumerable = require('linq');
 
 var s3 = {
-	access_key_id: "XXXXX"
-	, secret_key: "XXXXXX"
-	, bucket: "XXXXX"
+	access_key_id: sails.config.aws.access_key_id
+	, secret_key: sails.config.aws.secret_key
+	, bucket: sails.config.aws.bucket
 	, acl: "public-read"
 	, https: "false"
 	, error_message: ""

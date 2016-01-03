@@ -3,9 +3,9 @@ import EmberAdminServiceAdmin from 'ember-admin/services/admin';
 
 export default EmberAdminServiceAdmin.extend({
   namespace: '',
-//  includedModels: null,
+ includedModels: ['page', 'section','photo'], //make null to add all
 //  excludedModels: null
 excludedColumns: {
-  'page': ['description']
+  'page': ['description', 'title']
 }
-});
+}); 

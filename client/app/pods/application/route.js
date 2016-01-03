@@ -2,6 +2,11 @@ import Ember from 'ember';
 import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
+  queryParams: {
+	  culture: {
+		  refreshModel: true
+	  }
+  },
   init: function() {
 	this._super.apply(this, arguments);
 	var _this = this;	

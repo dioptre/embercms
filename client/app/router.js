@@ -10,16 +10,22 @@ Router.map(function() {
   adminRouter(this);
   this.route('test');
   this.route('test2');
-  this.route('400');
 
   this.resource('user', function() {});
 
   this.route("login");
   this.route("register");
   this.route('protected');
-  this.route('page');
   this.route('section');
   this.route('translation');
+  this.route('photo');
+
+  this.route('page', { path : "page/:id"}, function() {
+
+  });
+  
+  this.route('400', { path: '/*wildcard'});
+
 });
 
 

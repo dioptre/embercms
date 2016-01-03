@@ -15,7 +15,7 @@
     "bootstrap": "~3.3.5",
     "materialize": "~0.97.0",
     "ember-simple-auth": "0.7.3",
-    "ember-uploader": "~0.3.11",
+    "ember-uploader": "0.3.11",
     "quill": "~0.20.1"
   },
   "resolutions": {
