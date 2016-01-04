@@ -1,4 +1,14 @@
-{{outlet}}
-{{!-- ember-cli-materialize modal container --}}
-{{md-modal-container}}
-<p style="font-size:6px"><a href="https://github.com/dioptre/embercms">...</a></p>
+<div class="image-preloader"></div>
+<div class="docs-layout mdl-layout mdl-js-layout">
+{{template-header}}
+    <main class="docs-layout-content mdl-layout__content mdl-color-text--grey-600">
+      <div class="content mdl-grid mdl-grid--no-spacing" id="content">
+        <div class="subpageheader mdl-cell--12-col"></div>
+		{{outlet}}
+		{{!-- ember-cli-materialize modal container --}}
+		{{md-modal-container}}
+		<p style="font-size:6px"><a href="https://github.com/dioptre/embercms">...</a></p>
+        </div>
+	{{template-footer}}
+     </main>
+</div>
