@@ -56,6 +56,13 @@ module.exports.policies = {
     "destroy" : ["isAdmin"],
     "findOne" : ["isAdmin"],
   },
+  SectionController: {
+    "create" : ["isAdmin"],
+    "find" : true,
+    "update" : ["isAdmin"],
+    "destroy" : ["isAdmin"],
+    "findOne" : true,
+  },
   AmazonController: {
     "sign" : ["hasToken"]
   },
