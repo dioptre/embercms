@@ -18,8 +18,7 @@
     {{/each}}
     <div class="model-column description">
         <label>
-	    description
-	    {{quill-editor body=model.description}}
+	    {{md-textarea label='description' value=model.description class="col s12"}}
 	</label>
     </div>
     {{async-button action="save" default="Save" pending="Saving..." fulfilled="Saved" rejected="Error" class="save"}}
