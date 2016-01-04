@@ -1,1 +1,1 @@
-module.exports = require('sails-generate-ember-blueprints/templates/basic/api/blueprints/create.js');
+module.exports = require('sails-generate-ember-blueprints/templates/advanced/api/blueprints/create.js');

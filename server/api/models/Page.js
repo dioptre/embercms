@@ -42,6 +42,12 @@ module.exports = {
 		}
 		//dominant : true
     },
+    
+    toJSON : function() {
+	var obj = this.toObject();
+	obj.title = obj.id;
+	return obj;
+    },
 
   }
 };
