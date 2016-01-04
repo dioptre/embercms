@@ -4,7 +4,7 @@ import EmberUploader from 'ember-uploader';
 export default EmberUploader.FileField.extend({
   uploadBusy : false,
   uploadedUrl : '',
-  url: '',
+  url: '/upload',
   filesDidChange: function(files) {
 	    var uploadUrl = this.get('url');
 	    var _this = this;

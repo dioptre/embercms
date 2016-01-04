@@ -2,6 +2,7 @@ var crypto = require("crypto");
 var ObjectId = require('mongodb').ObjectID;
 var uuid = require('node-uuid');
 var Enumerable = require('linq');
+var moment = require('moment');
 
 var s3 = {
 	access_key_id: sails.config.aws.access_key_id
@@ -9,19 +10,7 @@ var s3 = {
 	, bucket: sails.config.aws.bucket
 	, acl: "public-read"
 	, https: "false"
-	, error_message: ""
-	, pad: function(n) {
-		if ((n+"").length == 1) {
-			return "0" + n;
-		}
-		return ""+n;
-	}, expiration_date: function() {
-		var now = new Date();
-		var date = new Date( now.getTime() + (3600 * 1000) );
-		var ed = date.getFullYear() + "-" + this.pad(date.getMonth()+1) + "-" + this.pad(date.getDate());
-			ed += "T" + this.pad(date.getHours()) + ":" + this.pad(date.getMinutes()) + ":" + this.pad(date.getSeconds()) + ".000Z";
-		return ed;
-	}
+	, error_message: ""	
 };
 
 
@@ -36,14 +25,14 @@ var s3 = {
  */
 module.exports = {
   sign: function(req, res) {
-	TokenService.getUser(function(err,user) {
+	Token.getUser(req.headers.authorization).then(function(user) {
+		
 		var id = 'pub_' + ObjectId().valueOf();		
-		if (!err) {
+		if (typeof user !== 'undefined' && user && typeof user.id !== 'undefined') {
 			id = 'own_' + user.id;	
 		}
 		id = id + '_' + uuid.v4().replace(/-/ig, "") + '_' + req.query.name;
-		
-		var expiry_date = s3.expiration_date();
+		var expiry_date = moment().add(1, 'hours').toISOString();
 		var signatureString = "{\n		'expiration': '" + expiry_date + "',\n"
 				+ "		'conditions': [\n"
 				+ "				{'bucket': '" + s3.bucket + "'},"
@@ -52,7 +41,6 @@ module.exports = {
 				+ "				{'Content-Type': '" + req.query.type + "'},"
 				+ "				['starts-with', '$key', ''],"
 				+ "				['eq', '$success_action_status', '201']\n	]\n}";
-
 		var policy = new Buffer(signatureString).toString('base64').replace(/\n|\r/, '');
 		var hmac = crypto.createHmac("sha1", s3.secret_key);
 		var hash2 = hmac.update(policy);
@@ -67,7 +55,7 @@ module.exports = {
 		    success_action_status: '201',
 		    'Content-Type': req.query.type
 		});
-	}, req.headers.authorization);
+	});
 
   },
 };

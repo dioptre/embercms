@@ -16,7 +16,9 @@
     "materialize": "~0.97.0",
     "ember-simple-auth": "0.7.3",
     "ember-uploader": "0.3.11",
-    "quill": "~0.20.1"
+    "quill": "~0.20.1",
+    "linqjs": "~3.0.5",
+    "moment": "momentjs#~2.11.0"
   },
   "resolutions": {
     "jquery": ">=2.1.1"

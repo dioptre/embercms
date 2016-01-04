@@ -28,7 +28,7 @@ module.exports = function(environment) {
   ENV.contentSecurityPolicy =  {
           'default-src': "'self' https://maps.googleapis.com http://localhost",
           'font-src': "'self' *",
-          'connect-src': "'self' https://maps.googleapis.com ws://localhost:35729 ws://localhost:4200",
+          'connect-src': "'self' http://ecms.s3.amazonaws.com https://maps.googleapis.com ws://localhost:35729 ws://localhost:4200",
           'img-src': "* data:",
           'style-src': "* 'unsafe-inline'",
           'frame-src': "*",

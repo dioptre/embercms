@@ -47,7 +47,8 @@
     "ember-modal-dialog": "0.7.7",
     "ember-new-computed": "1.0.3",
     "ember-radio-button": "1.0.7",
-    "gulp-sass": "^2.1.1"
+    "gulp-sass": "^2.1.1",
+    "moment": "2.11.0"
   },
   "dependencies": {
     "broccoli-sass-source-maps": "^1.5.1",
@@ -55,8 +56,10 @@
     "ember-cli-sass": "^5.2.1",
     "ember-cli-uploader": "^0.3.11",
     "ember-google-map": "0.0.26",
+    "ember-moment": "^5.0.1",
     "linq": "^3.0.5",
     "lru-cache": "^4.0.0",
+    "moment": "^2.11.0",
     "node-gyp": "^3.2.1",
     "node-sass": "^3.4.2",
     "npmconf": "^2.1.2"
