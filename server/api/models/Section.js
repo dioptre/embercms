@@ -23,9 +23,13 @@ module.exports = {
 
     category : { type: 'string' },
 
+    subcategory : { type: 'string' },
+
     type : { type: 'string' },
 
     subtype : { type: 'string' },
+
+    metadata : { type: 'string' },
 
     auth : { type: 'string' },
 

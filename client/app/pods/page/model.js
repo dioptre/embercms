@@ -11,6 +11,7 @@ export default DS.Model.extend({
   theme: DS.attr('string'),
   metadata: DS.attr('string'),
   category: DS.attr('string'),
+  subcategory: DS.attr('string'),
   type: DS.attr('string'),
   subtype: DS.attr('string'),
   auth: DS.attr('string'),
