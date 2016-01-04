@@ -8,6 +8,6 @@ export default EmberAdminServiceAdmin.extend({
 excludedColumns: {
   'page': ['description', 'title', 'parent'],
   'photo': ['description', 'url', 'thumb'],
-  'section': ['description', 'page'],
+  'section': ['description'],
 }
 }); 

@@ -15,5 +15,6 @@ export default DS.Model.extend({
   subtype: DS.attr('string'),
   auth: DS.attr('string'),
   parent: DS.attr('string'),
-  position: DS.attr('number')
+  position: DS.attr('number'),
+  sections: DS.hasMany('section', {async : true})
 });

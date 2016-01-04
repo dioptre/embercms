@@ -11,6 +11,14 @@
 
 module.exports.models = {
 
+
+  associations: {
+      list: "index",
+      detail: "record"
+  },
+
+  validations: { ignoreProperties: [ 'includeIn' ] },
+
   autoCreatedBy: true,
   /***************************************************************************
   *                                                                          *

@@ -8,7 +8,8 @@
 module.exports = {
   autoPK: false,
   attributes: {
-	  id : {type: 'string', primaryKey: true, unique: true, columnName: 'title'},
+
+    id : {type: 'string', primaryKey: true, unique: true, columnName: 'title'},
 
     title : { type: 'string' },
 
@@ -30,7 +31,18 @@ module.exports = {
 
     parent : { type: 'string' },
 
-    position : { type: 'float' }
+    position : { type: 'float' },
+    
+    sections : {
+		collection: 'section',
+		via: 'page',
+		includeIn: {
+			list: "index",
+			detail: "record"
+		}
+		//dominant : true
+    },
+
   }
 };
 

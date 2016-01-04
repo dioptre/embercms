@@ -1,7 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  page: DS.attr('string'),
+//  page: DS.attr('string'),
+  page: DS.belongsTo('page', {async: true}),
   title: DS.attr('string'),
   description: DS.attr('string'),
   culture: DS.attr('string'),

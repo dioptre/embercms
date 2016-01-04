@@ -8,8 +8,12 @@
 module.exports = {
 
   attributes: {
-
-    page : { type: 'string' },
+    
+    page : {
+	model: 'page',
+	via: 'title',
+	index: true
+    },
 
     title : { type: 'string' },
 
