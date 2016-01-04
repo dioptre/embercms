@@ -13,5 +13,6 @@ export default EmberAdminRouteAdmin.extend({
             },(xhr, status, error) => { 
                 
             });
+	return this._super();
   }
 });
