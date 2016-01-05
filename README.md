@@ -1,4 +1,5 @@
-#EmberCMS (Ember.js Content Management System)
+#EmberCMS 
+Ember.js Content Management System
 
 ![EmberCMS](http://ecms.s3.amazonaws.com/pub_568b81391ae7569716b25d17_9515a3ab6ce843e88cf03f08c0a863c0_Screenshot+from+2016-01-04+23-48-15.png)
 
