@@ -14,7 +14,7 @@ export default Ember.Component.extend(Ember.Evented, {
   body_prev : null,
   context: null,
   _context_changed: function () {
-    console.log('hey');
+    //console.log('hey');
     var b = this.get('body'); 
     if (typeof b === 'string' && b !== this.get('body_prev'))
 	this.get('editor').setHTML(b);
@@ -34,7 +34,7 @@ export default Ember.Component.extend(Ember.Evented, {
 
 
   didInsertElement: function(){
-    console.log('didInsertElement');
+    //console.log('didInsertElement');
     var quill = new Quill('#full-editor', {
           modules:  {
             'toolbar': { container: '#full-toolbar' },
@@ -55,12 +55,12 @@ export default Ember.Component.extend(Ember.Evented, {
 
   textChange: function(delta, source){
     this.set('body', this.get('editor.editor.innerHTML'));
-    console.log('textChange');
-    console.log(delta);
-    console.log(source);
+    //console.log('textChange');
+    //console.log(delta);
+    //console.log(source);
 
     if (source === 'api') {
-      console.log("An API call triggered this change.");
+      //console.log("An API call triggered this change.");
     } else if (source === 'user') {
       // console.log("A user action triggered this change.");
 

@@ -14,6 +14,7 @@ Router.map(function() {
   this.resource('user', function() {});
 
   this.route("login");
+  this.route("logout");
   this.route("register");
   this.route('protected');
   this.route('section');

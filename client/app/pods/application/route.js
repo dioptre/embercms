@@ -3,7 +3,15 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   model: function (params, transition) {
-	this.store.findAll('page');
+	var _this = this;
+	return this.store.findAll('page').then(function(pages) {
+		return _this.store.filter('page', function(pages) {
+		  return true;
+		}).then(function(pages) {
+			return pages;
+		});
+	});
+
   },
   queryParams: {
 	  culture: {

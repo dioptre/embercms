@@ -12,7 +12,8 @@ module.exports = function(environment) {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
       },
-      Culture: 'en-US'
+      culture: 'en-US',
+      sitename: "Materialize Design Lite"
     },
 
     APP: {

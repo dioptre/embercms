@@ -1456,3 +1456,22 @@ code[class*=language-], pre[class*=language-] {
   width: 100%;
   border-radius: 7px;
 }
+
+.uppercase {
+text-transform: uppercase;
+}
+
+.template-nav {
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    line-height: 64px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    border-bottom: 3px solid transparent;
+}
+
+.template-nav-block {
+   width: 600px;
+}
+
