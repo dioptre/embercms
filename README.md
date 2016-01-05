@@ -1,5 +1,12 @@
 #Setup
 
+##Prerequisites
+* node & npm
+* mongo & redis (for next stages)
+* sailsjs (npm install sails -g)
+* sanestack.com (npm install -g sane-cli@beta)
+
+
 ##Update the site details in:
 * /client/config/environment.js 
 * /client/app/pods/application/controller.js & etc
