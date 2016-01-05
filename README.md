@@ -26,7 +26,7 @@
 * sailsjs (npm install sails -g)
 * sanestack.com (npm install -g sane-cli@beta)
 * Amazon s3 account
-
+* This git repo/zipped into a working direcotry
 
 ##Update the site details in:
 * /client/config/environment.js 
