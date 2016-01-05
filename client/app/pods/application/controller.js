@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
 	}.observes('currentPath'),
 	pages: function() {
 		return this.store.filter('page', function(pages) {
-			return true; 
+			return !(pages.get('hide') === true); 
 		});
 
 	}.on('init').property(),

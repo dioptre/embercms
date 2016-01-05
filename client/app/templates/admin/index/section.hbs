@@ -1,5 +1,5 @@
 <div class="{{recordType}} index">
-  <h3>Photos</h3>
+  <h3>Sections</h3>
   {{input value=filter placeholder="Filter"}}
   {{#unless hideCreate}}
     {{#if relationshipGiven}}
@@ -12,16 +12,16 @@
   <table>
     <thead>
       <tr>
-	<th>url</th>
         {{#each filteredColumns as |column|}}
           <th>{{column}}</th>
-        {{/each}}	
+        {{/each}}
+	<th>hidden</th>
+	<th>publish</th>
       </tr>
     </thead>
     <tbody>
       {{#each filteredRecords as |record|}}
         <tr>
-	  <td><a href="{{record.url}}"><img src="{{record.thumb}}"></a></td>
           {{#each filteredColumns as |column|}}
           <td>
             {{#link-to 'model-records.edit' recordType record}}
@@ -29,6 +29,8 @@
             {{/link-to}}
           </td>
           {{/each}}
+	  <td>{{md-check checked=record.hide disabled=true}}</td>
+	  <td>{{moment-from-now record.publish}}</td>
         </tr>
       {{/each}}
     </tbody>

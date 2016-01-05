@@ -1,0 +1,6 @@
+<div class="ember-admin">
+  {{#each filteredModels as |name|}}
+    {{link-to name 'model-records' name class="btn admin-link indigo"}}
+  {{/each}}
+  {{outlet}}
+</div>

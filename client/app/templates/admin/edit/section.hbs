@@ -1,5 +1,5 @@
 <div class='edit'>
-  <h2>Edit {{id}}</h2>
+  <h3>Edit Section</h3>
 
   <form>
     {{#each filteredColumns as |column|}}
@@ -16,18 +16,28 @@
 	    {{quill-editor body=model.description}}
 	</label>
     </div>
-
+    <div class="model-column publish">
+        <label>
+	    {{md-input-date label='Publish' value=model.publish class="col s12"}}
+	</label>
+    </div>
+    <div class="model-column hidden">
+        <label>
+	    {{md-check name="Hide" checked=model.hide}}
+	</label>
+    </div>
+    <br/><br/>
     {{async-button action="save" default="Save" pending="Saving..." fulfilled="Saved" rejected="Error" class="save"}}
     {{async-button action="destroyRecord" default="Delete" pending="Deleting..." fulfilled="Deleted" class="delete"}}
     <button {{action "cancel"}} class="cancel">Cancel</button>
   </form>
 
   <div class="relationships">
-    <h2>Relationships</h2>
+    <h3>Relationships</h3>
 
     {{#each relationshipTypes as |relationshipType|}}
       {{#each relationshipType as |relationship|}}
-        <h4>{{relationship.name}}</h4>
+        {{!--<h4>{{relationship.name}}</h4>--}}
         {{model-records-table recordType=relationship.type records=relationship.records relationshipName=relationship.inverse relationshipId=model.id}}
       {{/each}}
     {{/each}}

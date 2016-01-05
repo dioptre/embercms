@@ -1,5 +1,5 @@
 <div class='new'>
-  <h2>Create</h2>
+  <h3>Create Page</h3>
 
   <form>
     <div class="model-column title">
@@ -16,17 +16,17 @@
         </label>
       </div>
     {{/each}}
-    <div class="model-column publish">
-        <label>
-	    {{md-input-date label='Publish' value=model.publish class="col s12"}}
-	</label>
-    </div>
     <div class="model-column description">
         <label>
 	    {{md-textarea label='description' value=model.description class="col s12"}}
 	</label>
     </div>
-    <div class="model-column">
+    <div class="model-column publish">
+        <label>
+	    {{md-input-date label='Publish' value=model.publish class="col s12"}}
+	</label>
+    </div>
+    <div class="model-column hidden">
         <label>
 	    {{md-check name="Hide" checked=model.hide}}
 	</label>

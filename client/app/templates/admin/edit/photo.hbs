@@ -1,5 +1,5 @@
 <div class='edit'>
-  <h2>Edit {{id}}</h2>
+  <h3>Edit Photo</h3>
 
   <form>
     <div class="model-column url">
@@ -29,11 +29,11 @@
   </form>
 
   <div class="relationships">
-    <h2>Relationships</h2>
+    <h3>Relationships</h3>
 
     {{#each relationshipTypes as |relationshipType|}}
       {{#each relationshipType as |relationship|}}
-        <h4>{{relationship.name}}</h4>
+        {{!--<h4>{{relationship.name}}</h4>--}}
         {{model-records-table recordType=relationship.type records=relationship.records relationshipName=relationship.inverse relationshipId=model.id}}
       {{/each}}
     {{/each}}
