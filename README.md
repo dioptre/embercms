@@ -6,6 +6,7 @@
 * It's fairly basic at this stage, and is intended for users who are building applications in Ember.js to give their clients admin rights over content without needing to edit code while giving the developers the power to concentrate on app-building.
 * Should be good for developers who want to pass over a site to outsourcers who are only/experts familiar with javascript
 * I built this for myself and contracting gigs - but please contact me below if you want me to help you too
+* The images in this helpfile were uploaded with the EmberCMS tool :)
 
 ## Missing
 * Adding photos to content is a little manual - and should be improved
@@ -40,7 +41,7 @@
 * Zip /aws/lambda to /aws/lambda.zip
 * Upload /aws/lambda.zip to AWS lambda
 * Follow /aws/readme.md for next steps for adding CORS and other permissions
-* Stup in s3 that on object create execute lambda
+* Setup in s3 that on object create execute lambda
 
 ##There might be a dead dependency in the optional sails stats module sails-hook-dev 
 * vi server/node_modules/sails-hook-dev/index.js and replace lodash.... with lodash').isObject & reduce
@@ -58,3 +59,6 @@
 [@andrewgrosser](http://twitter.com/andrewgrosser)
 
 [Licensed under the MIT license](http://www.opensource.org/licenses/mit-license.php)
+
+![EmberCMSR](http://ecms.s3.amazonaws.com/pub_568b814f1ae7569716b25d19_e08d5cf186804b599124f03e7dc6fc9d_Screenshot+from+2016-01-04+23-48-46.png)
+
