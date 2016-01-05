@@ -9,7 +9,7 @@ export default Ember.Route.extend({
 			this.transitionTo('/400');
 		return this.store.find('section', {page: params.id, hide: false}).then(function (sections) {
 			sections.map(function (section) {
-				if (typeof section.get('type') === 'string' && section.get('type') && section.get('type').length > 0)
+				if (typeof section.get('type') === 'string' && section.get('type') && section.get('type').length > 0 && !/content-/.test(section.get('type')))
 					section.set('type', "content-" + section.get('type'));
 				else
 					section.set('type', "content-raw");
