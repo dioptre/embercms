@@ -34,6 +34,10 @@ module.exports = {
     parent : { type: 'string' },
 
     position : { type: 'float' },
+
+    hide: { type: 'boolean' },
+
+    publish: { type: 'datetime' },
     
     sections : {
 		collection: 'section',

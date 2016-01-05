@@ -14,6 +14,8 @@
         {{#each filteredColumns as |column|}}
           <th>{{column}}</th>
         {{/each}}
+	<th>hidden</th>
+	<th>publish</th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +28,8 @@
             {{/link-to}}
           </td>
           {{/each}}
+	  <td>{{md-check checked=record.hide disabled=true}}</td>
+	  <td>{{moment-from-now record.publish}}</td>
         </tr>
       {{/each}}
     </tbody>

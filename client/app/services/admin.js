@@ -6,8 +6,8 @@ export default EmberAdminServiceAdmin.extend({
  includedModels: ['page', 'photo'], //make null to add all
 //  excludedModels: null
 excludedColumns: {
-  'page': ['description', 'title', 'parent'],
+  'page': ['description', 'title', 'parent','hide','publish'],
   'photo': ['description', 'url', 'thumb'],
-  'section': ['description'],
+  'section': ['description','hide','publish'],
 }
 }); 

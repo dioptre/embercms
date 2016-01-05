@@ -17,5 +17,7 @@ export default DS.Model.extend({
   auth: DS.attr('string'),
   parent: DS.attr('string'),
   position: DS.attr('number'),
+  hide: DS.attr('boolean'),
+  publish: DS.attr(),
   sections: DS.hasMany('section', {async : true})
 });

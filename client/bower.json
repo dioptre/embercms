@@ -18,7 +18,8 @@
     "ember-uploader": "0.3.11",
     "quill": "~0.20.1",
     "linqjs": "~3.0.5",
-    "moment": "momentjs#~2.11.0"
+    "moment": ">= 2.8.0",
+    "moment-timezone": ">= 0.1.0"
   },
   "resolutions": {
     "jquery": ">=2.1.1"

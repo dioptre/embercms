@@ -16,11 +16,22 @@
         </label>
       </div>
     {{/each}}
+    <div class="model-column publish">
+        <label>
+	    {{md-input-date label='Publish' value=model.publish class="col s12"}}
+	</label>
+    </div>
     <div class="model-column description">
         <label>
 	    {{md-textarea label='description' value=model.description class="col s12"}}
 	</label>
     </div>
+    <div class="model-column">
+        <label>
+	    {{md-check name="Hide" checked=model.hide}}
+	</label>
+    </div>
+    <br/><br/>
     {{async-button action="save" default="Save" pending="Saving..." fulfilled="Saved" rejected="Error" class="save"}}
     <button {{action "cancel"}} class="cancel">Cancel</button>
   </form>

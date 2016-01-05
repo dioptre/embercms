@@ -11,5 +11,7 @@ export default DS.Model.extend({
   type: DS.attr('string'),
   subtype: DS.attr('string'),
   auth: DS.attr('string'),
-  position: DS.attr('number')
+  position: DS.attr('number'),
+  hide: DS.attr('boolean'),
+  publish: DS.attr(),
 });

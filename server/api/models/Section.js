@@ -33,7 +33,11 @@ module.exports = {
 
     auth : { type: 'string' },
 
-    position : { type: 'float' }
+    position : { type: 'float' },
+
+    hide: { type: 'boolean' },
+
+    publish: { type: 'datetime' },
   }
 };
 
