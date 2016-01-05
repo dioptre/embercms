@@ -57,6 +57,10 @@
 4. login to localhost:4200 as admin/admin1234
 5. create a page "home" under localhost:4200/admin
 6. create sections for page content etc.
+
+##Thanks
+
+* ...thanks to the many npm packages and source code used to help make this
  
 ## Legal
 
