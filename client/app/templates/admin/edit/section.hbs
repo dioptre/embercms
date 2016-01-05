@@ -16,6 +16,11 @@
 	    {{quill-editor body=model.description}}
 	</label>
     </div>
+    <div class="model-column description">
+        <label>
+ 	    {{md-textarea label='(source code)' value=model.description class="col s12"}}
+	</label>
+    </div>
     <div class="model-column publish">
         <label>
 	    {{md-input-date label='Publish' value=model.publish class="col s12"}}

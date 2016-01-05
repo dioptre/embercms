@@ -1,26 +1,34 @@
-    <header class="docs-layout-header mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <span class="docs-layout-title mdl-layout-title">{{#link-to "index"}}{{{sitename}}}{{/link-to}}</span>
-      </div>     
-    </header>
-      {{#md-navbar name=pagename class='uppercase blue-grey darken-3'}}
-	  <!-- A workaround to get the "active" class
-	    to apply to the active <li> automatically -->
-	  {{#each pages as |page|}}
-		{{#link-to 'page' page.id tagName='li'}}
-	    		{{link-to page.id 'page' page.id class="template-nav"}}
-	  	{{/link-to}}		
-	  {{/each}}
-	  
-	{{#if session.isAuthenticated}}
-	  	{{#link-to 'logout' tagName='li'}}
-	    		{{link-to 'logout' class="template-nav"}}
-	  	{{/link-to}}	
-	{{else}}
-	  	{{#link-to 'login' tagName='li'}}
-	    		{{link-to 'login' class="template-nav"}}
-	  	{{/link-to}}	
-	{{/if}}
-      {{/md-navbar}}
+{{#if isHome}}
+	<header class="docs-layout-header mdl-layout__header">
+		<div class="mdl-layout__header-row">
+			<span class="docs-layout-title mdl-layout-title">{{#link-to "index"}}{{{siteheader}}}{{/link-to}}</span>
+		</div>     
+	</header>
+{{else}}
+	<header class={{theme}}>
+		<div class="mdl-layout__header-row">
+			<span class="docs-layout-title mdl-layout-title">{{#link-to "index"}}<img src="/assets/android-desktop.png" class="header-logo">{{/link-to}}</span>
+		</div>     
+	</header>
+{{/if}}
+{{#md-navbar name=pagename class=theme}}
+  <!-- A workaround to get the "active" class
+    to apply to the active <li> automatically -->
+  {{#each pages as |page|}}
+	{{#link-to 'page' page.id tagName='li'}}
+    		{{link-to page.id 'page' page.id class="template-nav"}}
+  	{{/link-to}}		
+  {{/each}}
+  
+{{#if session.isAuthenticated}}
+  	{{#link-to 'logout' tagName='li'}}
+    		{{link-to 'logout' class="template-nav"}}
+  	{{/link-to}}	
+{{else}}
+  	{{#link-to 'login' tagName='li'}}
+    		{{link-to 'login' class="template-nav"}}
+  	{{/link-to}}	
+{{/if}}
+{{/md-navbar}}
 
 

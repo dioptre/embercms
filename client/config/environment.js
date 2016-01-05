@@ -13,7 +13,8 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       },
       culture: 'en-US',
-      sitename: "Materialize Design Lite"
+      sitename: "Materialize Design Lite",
+      theme: "blue-grey darken-3",
     },
 
     APP: {

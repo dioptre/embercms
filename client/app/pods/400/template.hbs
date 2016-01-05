@@ -1,5 +1,7 @@
-
-    <h1>400 ERROR</h1>
+<div class="basic-page basic-message">
+    <h3>Something went wrong...</h3>
     <br>
-    {{#unless loggedIn}}{{#link-to 'index' tagName='button'}}Go back{{/link-to}}{{/unless}}
-
+    <span>You may need more privileges. If the problem persists, please contact your administrator.</span>
+    <br><br>
+    {{#unless loggedIn}}{{#link-to 'login' tagName='button' class="btn"}}Login{{/link-to}}{{/unless}}
+</div>

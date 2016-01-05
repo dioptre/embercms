@@ -16,10 +16,10 @@ export default Ember.Component.extend(LoginControllerMixin, {
 					var pt = localStorage.getItem('previousTransition');					
 					if (pt) {
 						localStorage.removeItem('previousTransition');	
-						_this.get('currentController').transitionTo(pt);
+						_this.get('container').lookup('controller:application').transitionTo(pt);
 					}
 					else
-						_this.get('currentController').transitionTo('index');
+						_this.get('container').lookup('controller:application').transitionTo('index');
 		
 				}
 			},function (reason) {

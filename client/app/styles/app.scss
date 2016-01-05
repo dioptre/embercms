@@ -1484,3 +1484,22 @@ text-transform: uppercase;
   text-transform: uppercase;
 }
 
+.brand-logo {
+font-weight:300;
+}
+
+.header-logo {
+height:64px;
+margin:1px;
+}
+
+.basic-page {
+margin:15px;
+}
+
+.basic-message {
+  position: absolute; /* or absolute */
+  top: 40%;
+  text-align:center;
+  width:100%;
+}
