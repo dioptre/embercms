@@ -33,5 +33,14 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       localStorage.setItem('previousTransition', this.get('router.url'));
       this.transitionTo('/400');
     },
+    didTransition () {
+      Ember.run.once(this, function() {
+        //if(!trackingRoute) return;
+        console.log("Analytics: " + this.router.get('url'));
+        //ga('send', 'pageview', router.get('url'));
+      });
+    }
   }
 });
+
+

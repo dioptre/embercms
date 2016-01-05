@@ -7,7 +7,7 @@
 {{else}}
 	<header class={{theme}}>
 		<div class="mdl-layout__header-row">
-			<span class="docs-layout-title mdl-layout-title">{{#link-to "index"}}<img src="/assets/android-desktop.png" class="header-logo">{{/link-to}}</span>
+			{{#link-to "index"}}<img src="/assets/android-desktop.png" class="header-logo">{{/link-to}}<span class="docs-layout-title mdl-layout-title header-title">{{#link-to "index"}}{{sitename}}{{/link-to}}</span>
 		</div>     
 	</header>
 {{/if}}
