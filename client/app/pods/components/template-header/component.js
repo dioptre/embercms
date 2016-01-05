@@ -10,4 +10,10 @@ export default Ember.Component.extend({
 			return true;
 		return false;
 	}.property('pagename'),
+	isAdmin: function() {
+		if (typeof document.cookie === 'string' && /isAdmin=true/ig.test(document.cookie))
+			return true;
+		else
+			return false;
+	}.property(),
 });

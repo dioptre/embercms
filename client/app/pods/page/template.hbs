@@ -1,1 +1,4 @@
 {{outlet}}
+{{#each model as |section|}}
+{{component section.type content=section}}
+{{/each}}

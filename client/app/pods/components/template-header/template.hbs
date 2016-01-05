@@ -24,6 +24,11 @@
   	{{#link-to 'logout' tagName='li'}}
     		{{link-to 'logout' class="template-nav"}}
   	{{/link-to}}	
+	{{#if isAdmin}}
+	  	{{#link-to 'admin' tagName='li'}}
+	    		{{link-to 'admin' class="template-nav"}}
+	  	{{/link-to}}	
+	{{/if}}
 {{else}}
   	{{#link-to 'login' tagName='li'}}
     		{{link-to 'login' class="template-nav"}}
