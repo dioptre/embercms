@@ -8,7 +8,7 @@
 * It's fairly basic at this stage, and is intended for users who are building applications in Ember.js to give their clients admin rights over content without needing to edit code while giving the developers the power to concentrate on app-building.
 * Should be good for developers who want to pass over a site to outsourcers who are only/experts familiar with javascript
 * I built this for myself and contracting gigs - but please contact me at dioptre@gmail.com if you want me to help you too
-* The images in this helpfile were uploaded with the EmberCMS tool :)
+* The images in this helpfile were uploaded with EmberCMS :)
 
 ## Missing
 * Adding photos to content is a little manual - and should be improved
