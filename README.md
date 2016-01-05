@@ -16,6 +16,7 @@
 * Adding photos to content is a little manual - and should be improved
 * Caching page content in Redis is a todo
 * Stub for internationalization (translations) is there
+* Analytics (look at applicationroute), but should go with something like https://github.com/ember-insights/ember-insights
 * **You can open up editing of your other existing models too** using /client/app/services/admin.js
 
 #Setup
