@@ -1,4 +1,5 @@
-#EmberCMS (Ember.js Content Management System)
+#EmberCMS 
+[Ember.js](http://emberjs.com/) Content Management System
 
 ![EmberCMS](http://ecms.s3.amazonaws.com/pub_568b81391ae7569716b25d17_9515a3ab6ce843e88cf03f08c0a863c0_Screenshot+from+2016-01-04+23-48-15.png)
 
@@ -7,22 +8,28 @@
 * This is a complete fullstack "javascript only" CMS
 * It's fairly basic at this stage, and is intended for users who are building applications in Ember.js to give their clients admin rights over content without needing to edit code while giving the developers the power to concentrate on app-building.
 * Should be good for developers who want to pass over a site to outsourcers who are only/experts familiar with javascript
-* I built this for myself and contracting gigs - but please contact me below if you want me to help you too
-* The images in this helpfile were uploaded with the EmberCMS tool :)
+* Should be good for people who want to become experts at javascript full-stack
+* I built this for myself and contracting gigs around small app development (> squarespace < complete custom job) - but please contact me at dioptre@gmail.com if you want me to help you too
+* The images in this helpfile were uploaded with EmberCMS :)
 
 ## Missing
 * Adding photos to content is a little manual - and should be improved
 * Caching page content in Redis is a todo
+* Stub for internationalization (translations) is there
+* Analytics (look at applicationroute), but should go with something like https://github.com/ember-insights/ember-insights
+* **You can open up editing of your other existing models too** using /client/app/services/admin.js
 
 #Setup
 
 ##Prerequisites
 * node & npm
 * mongo & redis (for next stages)
+* ember-cli (npm install -g ember-cli)
 * sailsjs (npm install sails -g)
 * sanestack.com (npm install -g sane-cli@beta)
 * Amazon s3 account
-
+* This git repo/zipped into a working directory
+* ember-cli-materialize (http://mike.works/ember-cli-materialize/#/forms)... this is the only stable material design lite (MDL) implementation in Ember (and I believe I tested all of them), the templating could equally be done in bootstrap but was not what I wanted at the time as the MDL styling support exceeds that of BS (http://www.getmdl.io/styles/index.html)
 
 ##Update the site details in:
 * /client/config/environment.js 
@@ -34,8 +41,9 @@
 
 ##Setup the server (encryption,sendgrid emails, aws s3 photo storage):
 * /server/config/[jwt,sendgrid,aws].js
+
 ##Setup iptables if you're in docker or behind a firewall
-* iptables -t nat -A PREROUTING -p tcp -d 10.240.0.3 --dport 80 -j DNAT --to-destination 10.240.0.3:4200 iptables -t nat -A POSTROUTING -j MASQUERADE
+* iptables -t nat -A PREROUTING -p tcp -d 101.140.0.1 --dport 80 -j DNAT --to-destination 101.140.0.1:4200 iptables -t nat -A POSTROUTING -j MASQUERADE
 
 ##Setup Amazon
 * Setup IAM account that has s3 and lambda full access
@@ -55,6 +63,10 @@
 4. login to localhost:4200 as admin/admin1234
 5. create a page "home" under localhost:4200/admin
 6. create sections for page content etc.
+
+##Thanks
+
+...thanks to the many npm packages and source code used to help make this!
  
 ## Legal
 
