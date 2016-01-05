@@ -28,7 +28,7 @@
 * sanestack.com (npm install -g sane-cli@beta)
 * Amazon s3 account
 * This git repo/zipped into a working directory
-* ember-cli-materialize (http://mike.works/ember-cli-materialize/#/forms)... this is the only material design lite (MDL) implementation in Ember as far as I tested (and I believe I tested all of them), the templating could equally be done in bootstrap but was not what I wanted at the time as the styling exceeds support given in bootstrap (http://www.getmdl.io/styles/index.html)
+* ember-cli-materialize (http://mike.works/ember-cli-materialize/#/forms)... this is the only stable material design lite (MDL) implementation in Ember (and I believe I tested all of them), the templating could equally be done in bootstrap but was not what I wanted at the time as the MDL styling support exceeds that of BS (http://www.getmdl.io/styles/index.html)
 
 ##Update the site details in:
 * /client/config/environment.js 
