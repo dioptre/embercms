@@ -22,6 +22,7 @@
 ##Prerequisites
 * node & npm
 * mongo & redis (for next stages)
+* ember-cli (npm install -g ember-cli)
 * sailsjs (npm install sails -g)
 * sanestack.com (npm install -g sane-cli@beta)
 * Amazon s3 account
