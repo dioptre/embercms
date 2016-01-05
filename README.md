@@ -60,7 +60,7 @@
 
 ##Thanks
 
-* ...thanks to the many npm packages and source code used to help make this
+...thanks to the many npm packages and source code used to help make this!
  
 ## Legal
 
