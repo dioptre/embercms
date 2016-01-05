@@ -48,4 +48,7 @@ export default Ember.Controller.extend({
 	headertheme: function() {
 		return "uppercase " + this.get('theme'); 
 	}.property('theme'),
+	footertheme: function() {
+		return "uppercase footer white-text " + this.get('theme'); 
+	}.property('theme'),
 });

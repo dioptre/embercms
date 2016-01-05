@@ -1510,3 +1510,42 @@ margin:15px;
   text-align:center;
   width:100%;
 }
+
+.copyright-addendum {
+    line-height: 42px;
+}
+
+.github {
+min-height:22px;
+min-width:22px;
+max-height:22px;
+max-width:22px;
+margin-top:10px;
+}
+
+html{
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+.app {
+    height:100vh;
+    margin:0 auto;
+}
+
+.fullpage {  
+  min-height: 100% !important;
+  /* equal to footer height */
+  margin-bottom: -142px; 
+}
+.fullpage:after {
+  content: "";
+  display: block;
+}
+#footer, .fullpage:after {
+  height: 142px; 
+}
+
+
