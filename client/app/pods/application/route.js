@@ -33,8 +33,5 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       localStorage.setItem('previousTransition', this.get('router.url'));
       this.transitionTo('/400');
     },
-    txrrrf(url) {
-	debugger;
-    }
   }
 });
