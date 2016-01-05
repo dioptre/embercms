@@ -8,7 +8,8 @@
 * This is a complete fullstack "javascript only" CMS
 * It's fairly basic at this stage, and is intended for users who are building applications in Ember.js to give their clients admin rights over content without needing to edit code while giving the developers the power to concentrate on app-building.
 * Should be good for developers who want to pass over a site to outsourcers who are only/experts familiar with javascript
-* I built this for myself and contracting gigs - but please contact me at dioptre@gmail.com if you want me to help you too
+* Should be good for people who want to become experts at javascript full-stack
+* I built this for myself and contracting gigs around small app development (> squarespace < complete custom job) - but please contact me at dioptre@gmail.com if you want me to help you too
 * The images in this helpfile were uploaded with EmberCMS :)
 
 ## Missing
@@ -27,6 +28,7 @@
 * sanestack.com (npm install -g sane-cli@beta)
 * Amazon s3 account
 * This git repo/zipped into a working directory
+* ember-cli-materialize (http://mike.works/ember-cli-materialize/#/forms)... this is the only material design lite (MDL) implementation in Ember as far as I tested (and I believe I tested all of them), the templating could equally be done in bootstrap but was not what I wanted at the time as the styling exceeds support given in bootstrap (http://www.getmdl.io/styles/index.html)
 
 ##Update the site details in:
 * /client/config/environment.js 
