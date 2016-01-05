@@ -38,6 +38,7 @@
 
 ##Setup the server (encryption,sendgrid emails, aws s3 photo storage):
 * /server/config/[jwt,sendgrid,aws].js
+
 ##Setup iptables if you're in docker or behind a firewall
 * iptables -t nat -A PREROUTING -p tcp -d 101.140.0.1 --dport 80 -j DNAT --to-destination 101.140.0.1:4200 iptables -t nat -A POSTROUTING -j MASQUERADE
 
