@@ -1,3 +1,6 @@
+![Image of EmberCMS]http://ecms.s3.amazonaws.com/pub_568b81391ae7569716b25d17_9515a3ab6ce843e88cf03f08c0a863c0_Screenshot+from+2016-01-04+23-48-15.png
+
+
 #Notes
 * This is a complete fullstack "javascript only" CMS
 * It's fairly basic at this stage, and is intended for users who are building applications in Ember.js to give their clients admin rights over content without needing to edit code while giving the developers the power to concentrate on app-building.
