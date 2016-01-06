@@ -10,8 +10,13 @@
         I require little markup to use effectively.
     {{/md-card-content}}
     {{#md-card-action}}
-        {{#link-to "index"}}Link 1{{/link-to}}
-        {{#link-to "index"}}Link 2{{/link-to}}
+	<div style="text-align:right">
+	{{md-btn text='Save & Continue'
+	icon='mdi-content-send'
+	iconPosition='right'
+	action='debug'
+	class='yellow deep-purple-text text-darken-3'}}
+	</div>
     {{/md-card-action}}
 {{/md-card}}
 </div>

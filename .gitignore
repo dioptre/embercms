@@ -3,4 +3,3 @@ dist/
 node_modules/
 bower_components/
 aws/lambda.zip
-s/
