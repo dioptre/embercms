@@ -13,6 +13,12 @@ Router.map(function() {
 
   this.resource('user', function() {});
 
+  this.resource('s', function() {
+	this.route('company', function() {
+		this.route('register');
+	});
+  });
+
   this.route("login");
   this.route("logout");
   this.route("register");

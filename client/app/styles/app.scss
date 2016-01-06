@@ -1548,4 +1548,23 @@ body {
   height: 142px; 
 }
 
+.tight-tab {
+  margin-bottom: 0px;
+}
+
+.tight-box {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 0.75rem;
+    margin-top:0px;
+    padding-top:0px;
+}
+.tight-card {
+    margin-top:0px;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+}
 
