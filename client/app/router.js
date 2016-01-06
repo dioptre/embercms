@@ -14,7 +14,7 @@ Router.map(function() {
   this.resource('user', function() {});
 
   this.resource('s', function() {
-	this.resource('company', function() {
+	this.route('company', function() {
 		this.route('register');
 	});
   });
