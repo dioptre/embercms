@@ -20,7 +20,9 @@ export default Ember.Controller.extend({
 	}.on('init'),
 	pagename: null,
 	_pagename: function() {
-		if (this.get('currentPath') !== "page.index")
+		if (/^s\./.test(this.get('currentPath')))
+			this.set('pagename', this.get('currentPath').replace(/.*\.(.*)/, "$1"));
+		else if (this.get('currentPath') !== "page.index")
 			this.set('pagename', this.get('currentPath').replace(/(^.*?)(\..*)/, "$1"));
 	}.observes('currentPath'),
         _title: function() {

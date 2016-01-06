@@ -21,6 +21,9 @@
   {{/each}}
   
 {{#if session.isAuthenticated}}
+  	{{#link-to 'company.register' tagName='li'}}
+    		{{link-to 'Registration' 'company.register'  class="template-nav"}}
+  	{{/link-to}}	
   	{{#link-to 'logout' tagName='li'}}
     		{{link-to 'logout' class="template-nav"}}
   	{{/link-to}}	
