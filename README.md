@@ -18,6 +18,8 @@
 * Stub for internationalization (translations) is there
 * Analytics (look at applicationroute), but should go with something like https://github.com/ember-insights/ember-insights
 * **You can open up editing of your other existing models too** using /client/app/services/admin.js
+* Custom renderers for components (only raw html is being rendered of section.description atm), stubs are there to do other "types"
+* Dropdowns in admin interface (Eg. theme in page can be "indigo" or other colors: http://mike.works/ember-cli-materialize/#/colors) but there are no drop downs for this yet
 
 #Setup
 
