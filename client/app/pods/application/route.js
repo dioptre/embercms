@@ -17,11 +17,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 	    extraClasses: 'growl-messenger messenger-fixed messenger-on-bottom messenger-on-right',
 	    theme: 'ice'
 	});
-this.Messenger.post({
-  message: "Weeeeee",
-  hideAfter: 1000,
-  hideOnNavigate: true
-});
 	$(document).ajaxError(function(evt, jqXHR) {
 		if (typeof jqXHR === 'object' && jqXHR && typeof jqXHR.responseJSON === 'object' && jqXHR.responseJSON && typeof jqXHR.responseJSON.error === 'string' && jqXHR.responseJSON.error && jqXHR.responseJSON.error.length > 0) {
 			if (/invalidPasswords/.test(jqXHR.responseJSON.error))
