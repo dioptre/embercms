@@ -64,7 +64,8 @@
 3. run "sane up" in /
 4. login to localhost:4200 as admin/admin1234
 5. create a page "home" under localhost:4200/admin
-6. create sections for page content etc.
+6. create sections for page content etc. and fill up your site
+7. if you want to extend your own site with custom code, check out /client/app/pods/components/template-header/template.hbs and /client/app/pods/s/company...
 
 ##Thanks
 
