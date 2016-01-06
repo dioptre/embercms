@@ -1568,3 +1568,12 @@ body {
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
+
+.messenger-message {
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    border-radius: 0px !important;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14), 2px 2px #aaaaaa, 0 5px rgba(0, 0, 0, 0.05) !important;
+    -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14), 2px 2px #aaaaaa, 0 5px rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14), 2px 2px #aaaaaa, 0 5px rgba(0, 0, 0, 0.05) !important;
+}

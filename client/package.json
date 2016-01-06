@@ -45,6 +45,7 @@
     "ember-export-application-global": "^1.0.4",
     "ember-key-responder": "0.4.2",
     "ember-legacy-views": "0.2.0",
+    "ember-messenger": "0.0.9",
     "ember-modal-dialog": "0.7.7",
     "ember-new-computed": "1.0.3",
     "ember-radio-button": "1.0.7",
