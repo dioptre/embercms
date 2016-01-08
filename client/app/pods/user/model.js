@@ -11,7 +11,7 @@ export default DS.Model.extend({
   disciplines: DS.attr('string'),
   organizations: DS.attr('string'),
   registration: DS.attr('string'),
-  provinces: DS.attr('string')
+  provinces: DS.attr('string'),
   username: DS.attr('string'),
   password: DS.attr('string'),
   email: DS.attr('string'),
