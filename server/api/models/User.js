@@ -4,6 +4,27 @@ var _super = require('sails-permissions/api/models/User');
 _.merge(exports, _super);
 _.merge(exports, {
   attributes: {
+
+	name : { type: 'string' },
+
+	description : { type: 'string' },
+
+	firstName : { type: 'string' },
+
+	lastName : { type: 'String' },
+
+	isAuthorized : { type: 'string' },
+
+	position : { type: 'string' },
+
+	disciplines : { type: 'string' },
+
+	organizations : { type: 'string' },
+
+	registration : { type: 'string' },
+
+	provinces : { type: 'string' },
+
 	toJSON: function() {
 		var obj = this.toObject();
 		//delete obj.passports;
@@ -22,6 +43,7 @@ _.merge(exports, {
 		delete obj.createdAt;
 		delete obj.updatedAt;
 		delete obj.model;
+		delete user.password;
 		console.log(obj);
 		return obj;
 	}

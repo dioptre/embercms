@@ -4,6 +4,7 @@ module.exports = {
   attributes: {
 
     uuid: { type: 'string', index: true, primaryKey: true }, 
+    json: { type: 'string'}, 
 	
   },
   beforeValidate: function(values, cb) {
