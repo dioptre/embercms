@@ -11,9 +11,13 @@ export default Ember.Component.extend({
 		return false;
 	}.property('pagename'),
 	isAdmin: function() {
-		if (typeof document.cookie === 'string' && /isAdmin=true/ig.test(document.cookie))
-			return true;
-		else
-			return false;
+		return ecms.hasRole('admin');
 	}.property(),
+	isSupplier: function() {
+		return ecms.hasRole('registrant');
+	}.property(),
+	isClient: function() {
+		return ecms.hasRole('client');
+	}.property(),
+
 });
