@@ -56,9 +56,6 @@
 * Follow /aws/readme.md for next steps for adding CORS and other permissions
 * Setup in s3 that on object create execute lambda
 
-##There might be a dead dependency in the optional sails stats module sails-hook-dev 
-* vi server/node_modules/sails-hook-dev/index.js and replace lodash.... with lodash').isObject & reduce
-
 ##Login to your site
 1. run "npm install" in /client and /server
 2. run "bower install" in /client and /server
