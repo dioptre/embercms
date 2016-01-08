@@ -76,18 +76,20 @@ module.exports = {
 	var role = options.role;
 	var where = undefined;
 	var blacklist = undefined;
+	var _this = this;
 	if (typeof options.criteria !== 'undefined' && options.criteria) {
 		where = options.critera.where;
 		blacklist = options.criteria.blacklist;
 	}
+	
 	return this.findRolePermission(action, model, role, where, blacklist).then(function (result) {
 		if (typeof result === 'undefined' || !result) {
 			var criteria = {};
 			criteria.where = where;
 			criteria.blacklist = blacklist;
 			if ((typeof criteria.blacklist === 'undefined' || !criteria.blacklist) && (typeof criteria.where === 'undefined' || !criteria.where))
-				criteria = undefined			
-			return this.grant({action: action, model: model, role: role, criteria : criteria});
+				criteria = undefined		
+			return _this.grant({action: action, model: model, role: role, criteria : criteria});
 		}
 		else
 			return result;
@@ -317,7 +319,7 @@ module.exports = {
    * @param options.criteria.blacklist {string array} - optional attribute blacklist
    */
   grant: function(permissions) {
-    if (!_.isArray(permissions)) {
+    if (!Array.isArray(permissions)) {
       permissions = [permissions];
     }
 
@@ -333,9 +335,16 @@ module.exports = {
           name: permission.model
         })])
         .then(function(arr) {
-	  var role = arr[0];
-	  var user = arr[1];
-	  var model = arr[2];
+	  var role, user, model;
+	  if (Array.isArray(arr)) {
+	  	role = arr[0];
+	  	user = arr[1];
+	  	model = arr[2];
+	  } else {
+		role = arr.role;
+		user = arr.user;
+		model = arr.model;
+	  }
           permission.model = model.id;
           if (role && role.id) {
             permission.role = role.id;
@@ -435,9 +444,16 @@ module.exports = {
     })]);
 
     ok = ok.then((arr) => {
-	  var role = arr[0];
-	  var user = arr[1];
-	  var model = arr[2];
+	  var role, user, model;
+	  if (Array.isArray(arr)) {
+	  	role = arr[0];
+	  	user = arr[1];
+	  	model = arr[2];
+	  } else {
+		role = arr.role;
+		user = arr.user;
+		model = arr.model;
+	  }
       var query = {
         model: model.id,
         action: options.action,

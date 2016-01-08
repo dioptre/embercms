@@ -17,25 +17,30 @@ module.exports = function myHook(sails) {
       },
       initialize: function(cb) {
 
-	   var eventsToWaitFor = ['hook:auth:initialized','hook:permissions:initialized'];
+	   var eventsToWaitFor = ['hook:auth:initialized','hook:permissions:initialized', 'hook:orm:loaded'];
 	   sails.after(eventsToWaitFor, function() {
-
+		console.log("///Writing Additional Permissions");
 		var promises = [];
 		promises.push(Role.find({where: {name: 'client'}, limit: 1, sort: 'name ASC'}, { fields: ['name'] }).then(function (results) {
 			if (results.length < 1)
 				return sails.services.permissionservice.createRole({ name: 'client', users: 'admin', permissions: [{ model: 'company', action: 'read' }] }).then();
-			else return 'already there';
+			else return 'Client already there';
 		}));
 
-		promises.push(sails.services.permissionservice.grantRole({action: 'read', model: 'photo', role: 'registered'}));
+		promises.push(Role.find({where: {name: 'registrant'}, limit: 1, sort: 'name ASC'}, { fields: ['name'] }).then(function (results) {
+			if (results.length < 1)
+				return sails.services.permissionservice.createRole({ name: 'registrant', users: 'admin', permissions: [{ model: 'company', action: 'read' }] }).then();
+			else return 'Registrant already exists';
+		}));
 
-		console.log("///Writing Additional Permissions");
-
-		//Process serially
-		Promise.each(promises, (v,i,t) => {})
+		Promise.all(promises)
 		.then(function (results) {
-			console.log(results);
-			return cb();
+			promises = [];
+			promises.push(sails.services.permissionservice.grantRole({action: 'read', model: 'photo', role: 'registrant'}));
+			return Promise.all(promises)
+			.then(function (results) {
+				return cb();
+			});
 		})
 		.catch(function(err) {
 		   sails.log(err);
