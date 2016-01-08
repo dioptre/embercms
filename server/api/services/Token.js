@@ -6,18 +6,21 @@ var _ = require('lodash');
 
 exports.getUser = function(token) {
 	return new Promise(function (resolve, reject) {
-		if (typeof token === 'undefined' || !token)
+		if (typeof token === 'undefined' || !token) {
+			console.log("no token");
 			return reject('not a valid token [0]');
+		}
 		else {
 			var parts = token.split(' ');
 			if (parts.length == 2) {
 			    var scheme = parts[0],
 				credentials = parts[1];
 			    if (/^Bearer$/i.test(scheme)) {
-			
 				jwt.verify(credentials, secret, function (err, result) {
-					if (err)
+//console.log("err:", err, " result: ", result);
+					if (err) {
 						return reject(err);
+					}
 					else
 						return resolve(result);
 				});

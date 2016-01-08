@@ -7,6 +7,7 @@ _.merge(exports, {
   //isAdmin handled through policies...
   isAdmin: function(req,res) {
     res.json(200, true);
+
   },
 
 });

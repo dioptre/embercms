@@ -25,7 +25,6 @@
     "sails-disk": "~0.10.0",
     "sails-generate-ember-blueprints": "0.0.9",
     "sails-hook-autoreload": "^0.11.5",
-    "sails-hook-dev": "^1.0.0",
     "sails-mongo": "^0.11.5",
     "sails-permissions": "^2.1.11",
     "sails-redis": "^0.10.6",

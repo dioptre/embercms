@@ -9,9 +9,11 @@ module.exports = function isAdmin (req, res, next) {
 
 	Token.getUser(req.headers.authorization).then(
 		function(user) {
-			if (typeof user !== "undefined" && user && user.length > 0) {
-				User.findOne({id: user[0].id}).populate('roles', {name: 'admin'}).exec(function(err,user){
+			if (typeof user !== "undefined" && user && (user.length > 0 || user['0'])) {
+				user = user[0] || user['0'];
+				User.findOne({id: user.id}).populate('roles', {name: 'admin'}).exec(function(err,user){
 					if(err) return res.json(417, { error: 'You are not permitted to perform this action. (E_PRIVILEGE)'});
+					//console.log(user);
 					if (typeof user.roles !== 'undefined' && user.roles && user.roles.length > 0) {
 						res.cookie('isAdmin', true, { maxAge: 900000 });
 						return next();
@@ -27,6 +29,8 @@ module.exports = function isAdmin (req, res, next) {
 		function (error) {
 			return res.json(403, { error: 'User not found (E_PRIVILEGE)'});
 		}
-	);
+	).catch(function (err) {
+		console.log(sails.debug("Auth Error: ", err));
+	});
     
 };
