@@ -29,7 +29,8 @@
     "sails-permissions": "^2.1.11",
     "sails-redis": "^0.10.6",
     "sanitize-html": "^1.11.2",
-    "sendgrid": "^2.0.0"
+    "sendgrid": "^2.0.0",
+    "fnv-plus": "^1.2.12"
   },
   "scripts": {
     "debug": "node debug app.js",

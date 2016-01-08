@@ -1,7 +1,7 @@
 var Promise = require('bluebird');
 
 // File api/hooks/ecms-hook/index.js
-module.exports = function myHook(sails) {
+module.exports = function ecmsHook(sails) {
 
    // This var will be private
    var foo = 'bar';
@@ -14,6 +14,8 @@ module.exports = function myHook(sails) {
       // This function will be public
       sayHi: function (name) {
          console.log(greet(name));
+      },
+      configure: function () {
       },
       initialize: function(cb) {
 
@@ -33,10 +35,22 @@ module.exports = function myHook(sails) {
 			else return 'Registrant already exists';
 		}));
 
+		//Clear permissions - ensure sails-permissions fixtures don't #$%# with our security
+		console.log("///NEED TO MANUALLY CHANGE NODE_MODULES/SAILS_PERMISSIONS/DIST/HOOKS/INDEX (initializeFixtures resolve...permissions) TO PREVENT PERMISSIONS REWRITE");
+		promises.push(Permission.destroy({}).then());
+
 		Promise.all(promises)
 		.then(function (results) {
 			promises = [];
 			promises.push(sails.services.permissionservice.grantRole({action: 'read', model: 'photo', role: 'registrant'}));
+			promises.push(sails.services.permissionservice.grantRole({action: 'create', model: 'company', role: 'admin'}));
+			promises.push(sails.services.permissionservice.grantRole({action: 'read', model: 'company', role: 'admin'}));
+			promises.push(sails.services.permissionservice.grantRole({action: 'update', model: 'company', role: 'admin'}));
+			promises.push(sails.services.permissionservice.grantRole({action: 'delete', model: 'company', role: 'admin'}));
+			promises.push(Role.findOne({where: {name: 'registered'}}).then(function(result) {
+				if (typeof result !== 'undefined' && result)
+					return Permission.destroy({relation: "role", role: result.id}).then();
+			}));
 			return Promise.all(promises)
 			.then(function (results) {
 				return cb();
