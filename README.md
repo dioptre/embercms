@@ -9,6 +9,7 @@
 * It's fairly basic at this stage, and is intended for users who are building applications in Ember.js to give their clients admin rights over content without needing to edit code while giving the developers the power to concentrate on app-building.
 * Should be good for developers who want to pass over a site to outsourcers who are only/experts familiar with javascript
 * Should be good for people who want to become experts at javascript full-stack
+* Should be a fantastic introduction to Ember & Sails (javascript/node.js alternative to Rails)
 * I built this for myself and contracting gigs around small app development (> squarespace < complete custom job) - but please contact me at dioptre@gmail.com if you want me to help you too
 * The images in this helpfile were uploaded with EmberCMS :)
 
