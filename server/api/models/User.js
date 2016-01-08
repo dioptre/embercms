@@ -4,15 +4,27 @@ var _super = require('sails-permissions/api/models/User');
 _.merge(exports, _super);
 _.merge(exports, {
   attributes: {
-    roles: {
-      collection: 'Role',
-      via: 'users',
-      dominant: true
-    },
-    permissions: {
-      collection: "Permission",
-      via: "user"
-    }
+	toJSON: function() {
+		var obj = this.toObject();
+		//delete obj.passports;
+		_.map(obj.passports, function(pp) {
+			delete pp.password;
+			delete pp.createdAt;
+			delete pp.updatedAt;
+
+		});
+		_.map(obj.roles, function(r) {
+			delete r.createdAt;
+			delete r.updatedAt;
+		});
+		delete obj.createdBy;
+		delete obj.owner;
+		delete obj.createdAt;
+		delete obj.updatedAt;
+		delete obj.model;
+		console.log(obj);
+		return obj;
+	}
   },
 
   /**
