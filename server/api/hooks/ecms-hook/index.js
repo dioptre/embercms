@@ -47,6 +47,7 @@ module.exports = function ecmsHook(sails) {
 			promises.push(sails.services.permissionservice.grantRole({action: 'read', model: 'company', role: 'admin'}));
 			promises.push(sails.services.permissionservice.grantRole({action: 'update', model: 'company', role: 'admin'}));
 			promises.push(sails.services.permissionservice.grantRole({action: 'delete', model: 'company', role: 'admin'}));
+			promises.push(sails.services.permissionservice.grantRole({action: 'create', model: 'company', role: 'registrant'}));
 			promises.push(Role.findOne({where: {name: 'registered'}}).then(function(result) {
 				if (typeof result !== 'undefined' && result)
 					return Permission.destroy({relation: "role", role: result.id}).then();

@@ -68,7 +68,14 @@ module.exports.policies = {
   },
   PhotoController: {
 	'*': true
-  }
+  },
+  CompanyController: {
+	"findOne" : ["hasToken"],
+	"find" : ["hasToken", "ModelPolicy", "PermissionPolicy", "RolePolicy"],
+	"checkIn" : ["isCompanyAdminOrOwner"],
+	"checkOut" : ["hasToken"], //Rest is handled in code
+	"create" : ["hasToken", "ModelPolicy", "PermissionPolicy", "RolePolicy"],
+  },
 
   /***************************************************************************
    *                                                                          *

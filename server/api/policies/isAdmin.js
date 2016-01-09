@@ -30,7 +30,7 @@ module.exports = function isAdmin (req, res, next) {
 			return res.json(403, { error: 'User not found (E_PRIVILEGE)'});
 		}
 	).catch(function (err) {
-		console.log(sails.debug("Auth Error: ", err));
+		return res.json(401, { error: 'Require valid key (E_KEY). ' + (err || "")});
 	});
     
 };

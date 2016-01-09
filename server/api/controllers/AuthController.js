@@ -61,6 +61,9 @@ module.exports = {
 	  return negotiateError('Bad Token',req, res);
         }
       }
+      else {
+	return negotiateError('Missing Token',req, res);
+      }
       var bearerToken, refreshToken;
 
       bearerToken = jwt.verify(token, sails.config.jwt.secret);

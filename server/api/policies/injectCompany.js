@@ -21,7 +21,7 @@ module.exports = function (req, res, next) {
 			{
 				//...first check whether we are a company admin
 				//TODO: Add multiple company support
-				Company.findOne({id: m.company, createdBy : user.id}).then(function (company) {
+				Company.findOne({id: m.company, owner : user.id}).then(function (company) {
 					if (typeof company === 'undefined' || !company || typeof company.id === 'undefined' || !company.id) {	
 						return res.status(403).json({ error: 'Company mismatch for user '+ user.username });
 					}
@@ -41,7 +41,7 @@ module.exports = function (req, res, next) {
 				}
 				else {
 					//TODO: Add multiple companies and select last selected/session 
-					Company.findOne({createdBy : user.id}).then(function (company) {
+					Company.findOne({owner : user.id}).then(function (company) {
 					      if (typeof company === 'undefined' || !company || typeof company.id === 'undefined' || !company.id) {					
 							return res.status(403).json({ error: 'Could not retrieve company for user '+ user.username });								
 					      }
