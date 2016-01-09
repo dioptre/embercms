@@ -43,8 +43,8 @@ _.merge(exports, {
 		delete obj.createdAt;
 		delete obj.updatedAt;
 		delete obj.model;
-		delete user.password;
-		console.log(obj);
+		delete obj.password;
+		//console.log(obj);
 		return obj;
 	}
   },
