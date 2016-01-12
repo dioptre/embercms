@@ -65,6 +65,9 @@
 6. create sections for page content etc. and fill up your site
 7. if you want to extend your own site with custom code, check out /client/app/pods/components/template-header/template.hbs and /client/app/pods/s/company...
 
+##Bugs/Improvements
+I may eventually replace the sails-auth/sails-permissions/ember-cli-materialize dependencies with my own github links while the repos are in transition - clone the repos and edit the code if you have to then add something like this if you'd like to update any code immediately Ie. "public": "git://github.com/user/repo.git#ref". Let me know if you'd like me to merge your pull request.
+
 ##Thanks
 
 ...thanks to the many npm packages and source code used to help make this!
