@@ -46,7 +46,15 @@
 * /server/config/[jwt,sendgrid,aws].js
 
 ##Setup iptables if you're in docker or behind a firewall
-* iptables -t nat -A PREROUTING -p tcp -d 101.140.0.1 --dport 80 -j DNAT --to-destination 101.140.0.1:4200 iptables -t nat -A POSTROUTING -j MASQUERADE
+Note that you will need to make sure port 4200 is allowed, otherwise ufw will block the requests that are redirected to 4200.
+ | sudo ufw allow 4200/tcp
+ | sudo ufw allow ssh
+ | sudo ufw allow 80/tcp
+Add before filter section in /etc/ufw/before.rules(top of file):
+ | *nat
+ | :PREROUTING ACCEPT [0:0]
+ | -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 4200
+ | COMMIT
 
 ##Setup Amazon
 * Setup IAM account that has s3 and lambda full access
