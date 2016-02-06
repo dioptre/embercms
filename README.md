@@ -46,15 +46,20 @@
 * /server/config/[jwt,sendgrid,aws].js
 
 ##Setup iptables if you're in docker or behind a firewall
+http://serverfault.com/questions/238563/can-i-use-ufw-to-setup-a-port-forward
 Note that you will need to make sure port 4200 is allowed, otherwise ufw will block the requests that are redirected to 4200.
- | sudo ufw allow 4200/tcp
- | sudo ufw allow ssh
- | sudo ufw allow 80/tcp
+```
+sudo ufw allow 4200/tcp
+sudo ufw allow ssh
+sudo ufw allow 80/tcp
+```
 Add before filter section in /etc/ufw/before.rules(top of file):
- | *nat
- | :PREROUTING ACCEPT [0:0]
- | -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 4200
- | COMMIT
+```
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 4200
+COMMIT
+```
 
 ##Setup Amazon
 * Setup IAM account that has s3 and lambda full access
