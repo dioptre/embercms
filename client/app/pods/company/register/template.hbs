@@ -1,0 +1,249 @@
+<br/><br/>
+<div style="max-width:1024px;margin: auto;">
+{{md-tabs
+    content=tabs
+    selected=tab class="tight-tab box-shadow"}}
+<div class="tight-box">
+{{#if isBusiness}}
+{{#md-card title="Business Information" class="tight-card"}}
+    {{#md-card-content}}
+        {{md-input value=model.name label='Practice Name' class="col s12 s-input" validate=true errors=errors.model.name}}	
+	<div class="s-caption">Business name</div>
+	{{md-textarea value=model.description label='Practice Description' class="col s12 s-input" maxlength="1500" validate=true}}	
+	<div class="s-caption">A short description of practice (max 100 words)</div>
+	{{md-input value=model.hq label='Head Office' class="col s12 s-input" validate=true}}	
+	<div class="s-caption">City in which head office is located</div>
+	{{md-textarea value=model.address label='Office Address' class="col s12 s-input" maxlength="2000" validate=true}}	
+	<div class="s-caption">Office location</div>	
+    {{/md-card-content}}
+    {{#md-card-action}}
+	<div style="text-align:right">
+	{{md-btn text='Save & Continue'
+	icon='mdi-content-send'
+	iconPosition='right'
+	action='save'
+	class="s-button"}}
+	</div>
+    {{/md-card-action}}
+{{/md-card}}
+{{/if}}
+
+{{#if isEmployees}}
+{{#md-card title="Employees" class="tight-wide-card"}}
+    {{#md-card-content}}
+	{{#md-table content=employees class='responsive-table bordered' as |row|}}
+	  {{#md-table-col row=row key='name' header='Full Name'}}{{row.name}}{{/md-table-col}}
+	  {{#md-table-col row=row key='position' header='Position'}}{{row.position}}{{/md-table-col}}
+	  {{#md-table-col row=row key='Edit' header='Edit'}}<a {{action 'modalEmployeeOpen' row.id}} href="#!">Edit</a>{{/md-table-col}}
+	  {{#md-table-col row=row key='Delete' header='Delete'}}<a {{action 'modalEmployeeDelete' row.id}} href="#!">Delete</a>{{/md-table-col}}
+	{{/md-table}}
+	{{md-btn text='+ Add New Employee'
+	    action='modalEmployeeOpen'
+	    buttonType='large'
+	    class='pink darken-2 white-text space-head'}}
+    {{/md-card-content}}
+    {{#md-card-action}}
+	<div style="text-align:right">
+	{{md-btn text='Continue'
+	icon='mdi-content-send'
+	iconPosition='right'
+	action='continue'
+	class="s-button"}}
+	</div>
+    {{/md-card-action}}
+{{/md-card}}
+{{/if}}
+
+{{#if isProjects}}
+{{#md-card title="Projects" class="tight-wide-card"}}
+    {{#md-card-content}}
+	{{#md-table content=projects class='responsive-table bordered' as |row|}}
+	  {{#md-table-col row=row key='name' header='Name'}}{{row.name}}{{/md-table-col}}
+	  {{#md-table-col row=row key='completed' header='Completed'}}{{row.year}}{{/md-table-col}}
+	  {{!--{{#md-table-col row=row key='types' header='Types'}}{{row.types}}{{/md-table-col}}--}}
+	  {{#md-table-col row=row key='Edit' header='Edit'}}<a {{action 'modalProjectOpen' row.id}} href="#!">Edit</a>{{/md-table-col}}
+	  {{#md-table-col row=row key='Delete' header='Delete'}}<a {{action 'modalProjectDelete' row.id}} href="#!">Delete</a>{{/md-table-col}}
+	{{/md-table}}
+	{{md-btn text='+ Add New Project'
+	    action='modalProjectOpen'
+	    buttonType='large'
+	    class='pink darken-2 white-text space-head'}}
+    {{/md-card-content}}
+    {{#md-card-action}}
+	<div style="text-align:right">
+	{{md-btn text='Continue'
+	icon='mdi-content-send'
+	iconPosition='right'
+	action='continue'
+	class="s-button"}}
+	</div>
+    {{/md-card-action}}
+{{/md-card}}
+{{/if}}
+
+{{#if isReview}}
+{{#md-card title=errorExistsTitle class="tight-wide-card"}}
+    {{#md-card-content}}
+	{{#each validators as |v|}}
+		{{#each v.errors as |err|}}
+			<ul><li><a {{action 'restart' err}} href="#!" class="red-text">{{err}}</a></li></ul>
+		{{/each}}
+	{{/each}}
+    {{/md-card-content}}
+    {{#md-card-action}}
+	{{#if errorExists}}
+		<div style="text-align:right">
+		{{md-btn text='Go Back & Fix'
+		icon='mdi-action-cached'
+		iconPosition='right'
+		action='restart'
+		actionArgs='44'
+		class="s-button cyan"}}
+		</div>
+	{{else}}
+		<div style="text-align:right">
+		{{md-btn text='Preview'
+		icon='mdi-image-remove-red-eye'
+		iconPosition='right'
+		action='showDetail'
+		actionArgs='44'
+		class="s-button"}}
+		</div>
+		{{#unless approvalRequested}}<br/>
+		<div style="text-align:right">
+		{{md-btn text='Request Approval'
+		icon='mdi-communication-vpn-key'
+		iconPosition='right'
+		action='requestApproval'
+		actionArgs='44'
+		class="s-button"}}
+		</div>
+		{{/unless}}
+		{{#if approvalRequesting}}<br/>
+			<div style="text-align:right">
+			{{md-loader mode="circular" size="small"}}
+			</div>
+		{{/if}}
+	{{/if}}
+    {{/md-card-action}}
+{{/md-card}}
+{{/if}}
+
+
+{{#if modalEmployeeIsOpen}}
+    {{#md-modal close='modalEmployeeClose' class="test-modal tall-modal"}}
+        <div class="modal-content">
+		<span class="modal-header">Employee Details</span>
+	 	{{md-input value=model.selectedMember.name label='Employee Name' class="col s12 s-input" validate=true}}	
+		<div class="s-caption">Full name of employee</div>
+		{{md-input value=model.selectedMember.email label='Employee Email' type="email" class="col s12 s-input" validate=true}}	
+		<div class="s-caption">Employee's email address</div>
+		{{md-textarea value=model.selectedMember.description label="Employee Achievements" class="col s12 s-input" maxlength="1000" validate=true}}	
+		<div class="s-caption">Employee's key achievements</div>
+		<br>
+		{{md-select content=positions
+			value=model.selectedMember.position
+			label="Position of employee"
+			prompt="Please choose..."
+ 			optionValuePath='content.id'
+		    optionLabelPath='content.value' class="col s12"}}
+		<h6>Employee's Qualified Disciplines</h6>
+		<p>Note: Must be no less than a masters degree or no less than five years of practical experience working within that discipline.</p>
+		{{md-checks
+		    selection=model.selectedMember.disciplines
+		    content=disciplines
+		    optionValuePath='id'
+		    optionLabelPath='value'}}
+		<h6>Professional Organisations</h6>
+		<p>Please state which professional organisation/s the employee is registered with.</p>
+		{{md-checks
+		    selection=model.selectedMember.organizations
+		    content=memberships  optionValuePath='id'
+		    optionLabelPath='value'}}
+		{{md-textarea value=model.selectedMember.registration label="Employee's Professional Registration/Membership Numbers" class="col s12 s-input" maxlength="1000" validate=true}}	
+		<div class="s-caption">If multiple registrations/memberships, please supply details of all here.</div>
+		<h6>Which states/territories are the above registrations listed?</h6>
+		{{md-checks
+		    selection=model.selectedMember.provinces
+		    content=states
+		    optionValuePath='id'
+		    optionLabelPath='value'}}
+        </div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-orange btn-flat agree-button" {{action 'modalEmployeeSave' modal.selectedMember.id}}>
+                Save
+            </a>         
+        </div>
+    {{/md-modal}}
+{{/if}}
+
+
+{{#if modalProjectIsOpen}}
+    {{#md-modal close='modalProjectClose' class="test-modal tall-modal"}}
+        <div class="modal-content">
+		<span class="modal-header">Project Details</span>
+	 	{{md-input value=model.selectedProject.name label='Project Name' class="col s12 s-input" validate=true}}	
+		<div class="s-caption">Name of project</div>
+		{{md-textarea value=model.selectedProject.description label='Project Description' class="col s12 s-input" maxlength="2000" validate=true}}
+		<br>
+		{{md-select content=years
+			value=model.selectedProject.year
+			label="What year was this project completed?"
+			prompt="Please choose..."
+			optionLabelPath="content"
+			optionValuePath="content" class="col s12"}}
+		<br>
+		{{md-select content=values
+			value=model.selectedProject.valuation
+			label="Design Value"
+			prompt="Please choose..."
+			optionLabelPath="content.value"
+			optionValuePath="content.id" class="col s12"}}
+		<h6>Key Staff</h6>
+		<p>Name each of the key staff within the practice that were involved in this project.<br/>Please limit to directors, managing partners, partners and associates.</p>
+		{{md-checks
+		    selection=model.selectedProject.memberships
+		    content=lookup_employees	
+		    optionValuePath='content.value'	    
+		    optionLabelPath='content.id'}}
+		<h6>Project Type/s</h6>
+		<p>If the project involved more than one project type, please tick multiple types.</p>
+		{{md-checks
+		    selection=model.selectedProject.types
+		    content=categories
+		    optionValuePath='content.id'
+		    optionLabelPath='content.value'}}
+		<h6>Disciplines</h6>
+		<p>Disciplines supplied by the practice</p>
+		{{md-checks
+		    selection=model.selectedProject.disciplines
+		    content=disciplines
+		    optionValuePath='id'
+		    optionLabelPath='value'}}
+		<h6>Images</h6>
+		{{files-upload uploadedUrls=model.selectedProject.photos uploadBusy=model.selectedProject.uploadBusy}}
+		{{#if model.selectedProject.uploadBusy}}
+			{{md-loader}}
+		{{/if}}
+		{{#md-table content=model.selectedProject.images class='responsive-table bordered' as |row|}}
+		  {{#md-table-col row=row key='thumb' header='Image'}}<img src="{{row.thumb}}"/>{{/md-table-col}}
+		  {{#md-table-col row=row key='Delete' header='Delete'}}<a {{action 'modalProjectPhotosDelete' model.selectedProject.id row.photo}} href="#!">Delete</a>{{/md-table-col}}
+		{{/md-table}}
+		<div class="center">
+		{{#if model.selectedProject.processing}}
+			<br/>
+			{{md-loader mode="circular" size="small"}}
+		{{/if}}
+		</div>
+	</div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-orange btn-flat agree-button" {{action 'modalProjectSave'}}>
+                Save
+            </a>      
+        </div>
+    {{/md-modal}}
+{{/if}}
+
+
+</div>
+</div>

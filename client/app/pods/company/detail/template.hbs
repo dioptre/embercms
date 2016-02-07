@@ -1,0 +1,65 @@
+<br/><br/>
+<div class="container-search">
+	<div class="row">	   
+	    <div class="col m12 s12">
+		{{#md-card title=model.name class="tight-wide-card"}}
+		    {{#md-card-content}}
+			<div class="row">
+			    <div class="col m9 s12">
+				<p>{{model.description}}</p>				
+				<h6>Projects</h6>				
+				{{#md-card-collapsible accordion=false}}
+					{{#each model.projects as |project|}}
+					    {{#md-collapsible icon="mdi-action-home"
+						title=project.name}}	
+						<h6>Description</h6>					
+						{{#if project.description}}<p>{{project.description}}</p>{{/if}}					
+						<h6>Key Staff</h6>
+						<p><ul>{{#each project.memberships as |member|}}
+							<li>{{member.name}}</li>
+						{{/each}}</ul></p>									
+						{{#photo-swipe}}
+							{{#each project.images as |image|}}
+								<a class="photo-item" href="{{image.photo}}" data-width="{{image.width}}" data-height="{{image.height}}">
+								    <img src="{{image.thumb}}" alt="">
+								</a>
+							{{/each}}						 
+						{{/photo-swipe}}
+					    {{/md-collapsible}}
+					 {{/each}}
+				{{/md-card-collapsible}}
+				<h6>Key Staff</h6>
+				{{#md-card-collapsible accordion=false}}
+					{{#each model.memberships as |member|}}
+					    {{#md-collapsible icon="mdi-action-account-circle"
+						title=member.name}}	
+						<h6>Description</h6>
+						<p>{{member.description}}</p>
+						<h6>Email</h6>
+						<p>{{member.email}}</p>
+						<h6>Registration Info</h6>
+						<p>{{member.registration}}</p>						
+						<h6>Projects</h6>
+						<p><ul>{{#each member.projects as |project|}}
+							<li>{{project.name}}</li>
+						{{/each}}</ul></p>				
+					    {{/md-collapsible}}
+					 {{/each}}				
+				{{/md-card-collapsible}}
+			    </div>
+				
+			    <div class="col m3 s12">
+				
+			    </div>
+			</div>			
+		    {{/md-card-content}}
+		    {{#md-card-action}}
+			<div style="text-align:right">
+				
+			</div>
+		    {{/md-card-action}}
+		{{/md-card}}		
+	    </div>
+	</div>
+</div>
+{{outlet}}

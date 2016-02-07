@@ -70,11 +70,31 @@ module.exports.policies = {
 	'*': true
   },
   CompanyController: {
+	"populate": ["hasToken"], 
 	"findOne" : ["hasToken"],
 	"find" : ["hasToken", "ModelPolicy", "PermissionPolicy", "RolePolicy"],
-	"checkIn" : ["isCompanyAdminOrOwner"],
 	"checkOut" : ["hasToken"], //Rest is handled in code
 	"create" : ["hasToken", "ModelPolicy", "PermissionPolicy", "RolePolicy"],
+	"update" : ["isCompanyAdminOrOwner"],
+	"approvalRequest" : ["isCompanyAdminOrOwner"],
+	"approvalOutstanding" : ["isAdmin"],
+	"approvalUpdate" : ["isAdmin"],
+	"companySearch" : ["hasToken", "ModelPolicy", "PermissionPolicy", "RolePolicy"],
+	"print" : ["hasToken", "ModelPolicy", "PermissionPolicy", "RolePolicy"],
+  },
+
+  MembershipController : {
+	"populate": ["isCompanyAdminOrOwner"], 
+	"create" : ["isCompanyAdminOrOwner"],
+	"update" : ["isCompanyAdminOrOwner"],
+	"destroy" : ["isCompanyAdminOrOwner"]
+  },
+  ProjectController : {
+	"findOne" : ["isCompanyAdminOrOwner"],
+	"populate": ["isCompanyAdminOrOwner"], 
+	"create" : ["isCompanyAdminOrOwner"],
+	"update" : ["isCompanyAdminOrOwner"],
+	"destroy" : ["isCompanyAdminOrOwner"]
   },
 
   /***************************************************************************

@@ -9,5 +9,14 @@ window.ecms.hasRole = function(roleName) {
 	return Enumerable.from(user.user.roles).any("$.name === '" + roleName + "'");
 };
 
+window.ecms.myUser = function() {
+	var user = localStorage.getItem('ember_simple_auth:session');
+	if (typeof user !== 'string')
+		return null;
+	return JSON.parse(user);
+};
+
+window.ecms.regexEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
 
 

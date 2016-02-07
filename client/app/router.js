@@ -7,31 +7,41 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  adminRouter(this);
-  this.route('test');
-  this.route('test2');
+	adminRouter(this);
 
-  this.resource('user', function() {});
+	//App
+	this.route('protected');
 
-  this.resource('s', function() {
 	this.route('company', function() {
 		this.route('register');
+		this.route('detail', {path : "detail/:id"});
 	});
-  });
 
-  this.route("login");
-  this.route("logout");
-  this.route("register");
-  this.route('protected');
-  this.route('section');
-  this.route('translation');
-  this.route('photo');
+	//Security
+	this.route("login");
+	this.route("logout");
+	this.route("register");
 
-  this.route('page', { path : "page/:id"}, function() {
 
-  });
-  
-  this.route('400', { path: '/*wildcard'});
+	//CMS
+	this.route('page', { path : "page/:id"}, function() {
+
+	});
+	this.route('section');
+	this.route('translation');
+	this.route('photo');
+
+	//Other
+	this.route('400', { path: '/*wildcard'});
+
+	this.route('membership');
+
+
+
+
+
+
+
 
 });
 

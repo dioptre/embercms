@@ -10,11 +10,13 @@
  */
 
 module.exports.models = {
-
+  attributes: {
+      deletedAt: { type: 'datetime', index: true },
+  },
 
   associations: {
-      list: "index",
-      detail: "record"
+      list: "link", //link,record,index
+      detail: "link"
   },
 
   validations: { ignoreProperties: [ 'includeIn' ] },

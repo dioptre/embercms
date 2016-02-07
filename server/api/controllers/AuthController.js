@@ -24,7 +24,7 @@ module.exports = {
 
     if (req.body.grant_type === 'password') {
 
-      User.findByUsername(req.body.username).populate('passports').populate('roles').exec(function(err, user) {
+      User.findByUsername(req.body.username).populate('passports').populate('roles').populate('membership').exec(function(err, user) {
         if (err) {
 	  return negotiateError(err, req, res);
         }

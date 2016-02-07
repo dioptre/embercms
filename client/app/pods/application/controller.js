@@ -1,8 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend({	
 	queryParams: ['culture'],
 	culture: EmberENV.culture || "en-US",
+	isLoading : false,
 	theme: EmberENV.theme || "blue-grey darken-3",
 	_theme: function () {
 		var page = this.store.peekRecord('page', this.get('pagename'));
@@ -20,10 +21,13 @@ export default Ember.Controller.extend({
 	}.on('init'),
 	pagename: null,
 	_pagename: function() {
-		if (/^s\./.test(this.get('currentPath')))
-			this.set('pagename', this.get('currentPath').replace(/.*\.(.*)/, "$1"));
+		if (/loading/ig.test(this.get('currentPath')))
+			return;
+		else if (/^admin/i.test(this.get('currentPath')))
+			this.set('pagename', 'ADMIN');
 		else if (this.get('currentPath') !== "page.index")
-			this.set('pagename', this.get('currentPath').replace(/(^.*?)(\..*)/, "$1"));
+			this.set('pagename', this.get('currentPath').replace(/.*\.(.*)/, "$1"));
+//			this.set('pagename', this.get('currentPath').replace(/(^.*?)(\..*)/, "$1"));
 	}.observes('currentPath'),
         _title: function() {
 		var pagename = this.get('pagename');
@@ -53,4 +57,13 @@ export default Ember.Controller.extend({
 	footertheme: function() {
 		return "uppercase footer white-text " + this.get('theme'); 
 	}.property('theme'),
+	isAdmin: function() {
+		return ecms.hasRole('admin');
+	}.property(),
+	isSupplier: function() {
+		return ecms.hasRole('registrant');
+	}.property(),
+	isClient: function() {
+		return ecms.hasRole('client');
+	}.property(),
 });

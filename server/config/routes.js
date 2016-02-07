@@ -53,6 +53,7 @@ module.exports.routes = {
     'POST /signup' : {controller : 'Auth', action: 'callback'},
     'GET /upload' : {controller : 'Amazon', action: 'sign'},
     'GET /isadmin' : {controller: 'User', action: 'isAdmin'},
+    'GET /company/checkout/:id' : {controller : 'Company', action: 'checkOut'},
 
    //'/api/v1/auths/:action' : { controller: 'Auth', action: 'callback', skipAssets: true },
 

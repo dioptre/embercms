@@ -21,8 +21,11 @@ exports.getUser = function(token) {
 					if (err) {
 						return reject(err);
 					}
-					else
-						return resolve(result);
+					else {	
+						if (typeof result.user !== 'undefined' && result.user)
+							result = result.user;					
+						return resolve(result['0'] || result[0] || result);
+					}
 				});
 			    }
 			    else {

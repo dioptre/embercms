@@ -9,8 +9,8 @@ module.exports = function isAdmin (req, res, next) {
 
 	Token.getUser(req.headers.authorization).then(
 		function(user) {
-			if (typeof user !== "undefined" && user && (user.length > 0 || user['0'])) {
-				user = user[0] || user['0'];
+			user = user[0] || user['0'] || user;
+			if (typeof user !== "undefined" && user) {				
 				User.findOne({id: user.id}).populate('roles', {name: 'admin'}).exec(function(err,user){
 					if(err) return res.json(417, { error: 'You are not permitted to perform this action. (E_PRIVILEGE)'});
 					//console.log(user);

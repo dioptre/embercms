@@ -6,7 +6,7 @@
 	</header>
 {{else}}
 	<header class={{theme}}>
-		<div class="mdl-layout__header-row">
+		<div class="mdl-layout__header-row bgheader">
 			{{#link-to "index"}}<img src="/assets/android-desktop.png" class="header-logo">{{/link-to}}<span class="docs-layout-title mdl-layout-title header-title">{{#link-to "index"}}{{sitename}}{{/link-to}}</span>
 		</div>     
 	</header>
@@ -14,16 +14,17 @@
 {{#md-navbar name=pagename class=theme}}
   <!-- A workaround to get the "active" class
     to apply to the active <li> automatically -->
-  {{#each pages as |page|}}
+{{#each pages as |page|}}
 	{{#link-to 'page' page.id tagName='li'}}
-    		{{link-to page.id 'page' page.id class="template-nav"}}
-  	{{/link-to}}		
-  {{/each}}
-  
+		{{link-to page.id 'page' page.id class="template-nav"}}
+	{{/link-to}}		
+{{/each}}
 {{#if session.isAuthenticated}}
-  	{{!--DEMO CUSTOM PAGE MIXING EmberCMS WITH CUSTOM APP...{{#link-to 's.company.register' tagName='li'}}
-    		{{link-to 'Registration' 's.company.register' class="template-nav"}}
-  	{{/link-to}} --}}
+	{{#if isTest}}
+	  	{{#link-to 'company.register' tagName='li'}}
+	    		{{link-to 'Registration' 'company.register' class="template-nav"}}
+	  	{{/link-to}}	
+	{{/if}}
   	{{#link-to 'logout' tagName='li'}}
     		{{link-to 'logout' class="template-nav"}}
   	{{/link-to}}	

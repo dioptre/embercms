@@ -1,5 +1,6 @@
 var _ = require('lodash');
 var _super = require('sails-permissions/api/models/User');
+var moment = require("moment");
 
 _.merge(exports, _super);
 _.merge(exports, {
@@ -13,17 +14,11 @@ _.merge(exports, {
 
 	lastName : { type: 'String' },
 
-	isAuthorized : { type: 'string' },
+	membership : {  collection: 'membership', via: 'user' },
 
-	position : { type: 'string' },
+	resetPasswordId : {type: 'string'},
 
-	disciplines : { type: 'string' },
-
-	organizations : { type: 'string' },
-
-	registration : { type: 'string' },
-
-	provinces : { type: 'string' },
+	resetPasswordDate : {type: 'datetime', defaultsTo: new Date().toISOString()}, 
 
 	toJSON: function() {
 		var obj = this.toObject();
@@ -37,6 +32,14 @@ _.merge(exports, {
 		_.map(obj.roles, function(r) {
 			delete r.createdAt;
 			delete r.updatedAt;
+		});
+		_.map(obj.membership, function(m) {
+			delete m.description;
+			delete m.user;
+			delete m.createdAt;
+			delete m.updatedAt;
+			delete m.owner;
+			delete m.createdBy;
 		});
 		delete obj.createdBy;
 		delete obj.owner;

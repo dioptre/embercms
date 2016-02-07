@@ -9,11 +9,28 @@ module.exports = {
 
   attributes: {
 
-    user : { type: 'string' },
+	name : { type: 'string' },
 
-    company : { type: 'string' },
+	description : { type: 'string' },
 
-    position : { type: 'string' }
-  }
+	firstName : { type: 'string' },
+
+	lastName : { type: 'string' },
+
+	email: {type: 'string'},
+
+	registration : { type: 'string' },
+
+	position : { type: 'string' },
+
+	privileges : { type: 'array', defaultsTo: [] },
+
+	projects : { collection: 'project', via: 'memberships' },
+
+	user : { model: 'user' },
+
+	company : { model: 'company' }
+  },
+
 };
 

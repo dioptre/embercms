@@ -13,8 +13,8 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       },
       culture: 'en-US',
-      sitename: "Materialize Design Lite",
-      theme: "blue-grey darken-3",
+      sitename: "MDL",
+      theme: "blue-grey darken-3"
     },
 
     APP: {
@@ -28,13 +28,13 @@ module.exports = function(environment) {
 
 
   ENV.contentSecurityPolicy =  {
-          'default-src': "'self' https://maps.googleapis.com http://localhost",
+          'default-src': "'self' https://maps.googleapis.com http://localhost http://ecms.co",
           'font-src': "'self' *",
-          'connect-src': "'self' http://ecms.s3.amazonaws.com https://maps.googleapis.com ws://localhost:35729 ws://localhost:4200",
-          'img-src': "* data:",
+          'connect-src': "'self' http://ecms.s3.amazonaws.com https://maps.googleapis.com ws://localhost:35729 ws://localhost:4200 http://ecms.co",
+          'img-src': "* data: blob:",
           'style-src': "* 'unsafe-inline'",
           'frame-src': "*",
-          'script-src': "'self' 'unsafe-eval' 'unsafe-inline' *.googleapis.com *.gstatic.com localhost:35729 *.stripe.com https://js.stripe.com localhost:49152 maps.google.com"
+          'script-src': "'self' 'unsafe-eval' 'unsafe-inline' *.googleapis.com *.gstatic.com localhost:35729 *.stripe.com https://js.stripe.com localhost:49152 maps.google.com ecms.co"
   };
 
 

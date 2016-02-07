@@ -1,17 +1,7 @@
-var crypto = require("crypto");
 var ObjectId = require('mongodb').ObjectID;
 var uuid = require('node-uuid');
-var Enumerable = require('linq');
-var moment = require('moment');
-
-var s3 = {
-	access_key_id: sails.config.aws.access_key_id
-	, secret_key: sails.config.aws.secret_key
-	, bucket: sails.config.aws.bucket
-	, acl: "public-read"
-	, https: "false"
-	, error_message: ""	
-};
+var maxMeg = 2;
+var maxBytes = maxMeg*1048576;
 
 
 
@@ -26,36 +16,29 @@ var s3 = {
 module.exports = {
   sign: function(req, res) {
 	Token.getUser(req.headers.authorization).then(function(user) {
-		
+
+		if (typeof req === 'undefined' || !req || typeof req.query === 'undefined' || !req.query || typeof req.query.size === 'undefined' 
+			|| !Number.isInteger(Number(req.query.size)) || Number(req.query.size) <1 || Number(req.query.size) > maxBytes)
+			return res.json(406, {error : "Invalid file size (" + maxMeg +"M max). E_UPLOAD_FILESIZE"});
+		if (typeof req.query.name === 'undefined' || !req.query.name || !(/png$/i.test(req.query.name) || /jpeg$/i.test(req.query.name) || /jpg$/i.test(req.query.name))) 
+			return res.json(406, {error : "Invalid file type (jpeg,png required). E_UPLOAD_FILETYPE"});
+			
 		var id = 'pub_' + ObjectId().valueOf();		
 		if (typeof user !== 'undefined' && user && typeof user.id !== 'undefined') {
 			id = 'own_' + user.id;	
 		}
-		id = id + '_' + uuid.v4().replace(/-/ig, "") + '_' + req.query.name;
-		var expiry_date = moment().add(1, 'hours').toISOString();
-		var signatureString = "{\n		'expiration': '" + expiry_date + "',\n"
-				+ "		'conditions': [\n"
-				+ "				{'bucket': '" + s3.bucket + "'},"
-				+ "				{'key': '" + id + "'},"
-				+ "				{'acl': '" + s3.acl + "'},"
-				+ "				{'Content-Type': '" + req.query.type + "'},"
-				+ "				['starts-with', '$key', ''],"
-				+ "				['eq', '$success_action_status', '201']\n	]\n}";
-		var policy = new Buffer(signatureString).toString('base64').replace(/\n|\r/, '');
-		var hmac = crypto.createHmac("sha1", s3.secret_key);
-		var hash2 = hmac.update(policy);
-		var signature = hmac.digest(encoding="base64");
-		res.send({
-		    acl: s3.acl,
-		    awsaccesskeyid: s3.access_key_id,
-		    bucket: s3.bucket,
-		    key: id,
-		    policy: policy,
-		    signature: signature,
-		    success_action_status: '201',
-		    'Content-Type': req.query.type
-		});
+		if (typeof req.query.lastModified === 'string')
+			id = id + '_lm' + req.query.lastModified;
+		if (typeof req.query.width === 'string' && typeof req.query.height === 'string')
+			id = id + '_d' + req.query.width + "x" + req.query.height;
+		id = id + '_o_' + uuid.v4().replace(/-/ig, "") + '_';
+		id = id + req.query.name;
+		
+		res.send(sails.config.aws.getToken(id, req.query.type, maxBytes));
 	});
 
   },
 };
+
+
+

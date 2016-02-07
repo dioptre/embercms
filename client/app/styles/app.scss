@@ -1568,6 +1568,16 @@ body {
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
+.tight-wide-card {
+    @extend .tight-card;
+}
+
+.tight-wide-card p {
+    font-size: 13px;
+    margin-bottom: 32px;
+    max-width: 6400px;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
 
 .messenger-message {
     -moz-border-radius: 0px !important;
@@ -1576,4 +1586,57 @@ body {
     -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14), 2px 2px #aaaaaa, 0 5px rgba(0, 0, 0, 0.05) !important;
     -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14), 2px 2px #aaaaaa, 0 5px rgba(0, 0, 0, 0.05) !important;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14), 2px 2px #aaaaaa, 0 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+.s-button {
+	@extend .cyan;
+	@extend .darken-4;
+	@extend .white-text;
+	@extend .text-darken-3;
+}
+
+.s-input {
+	margin-bottom: -32px;
+}
+.s-caption {
+	margin-bottom:23px;	
+	@extend label
+}
+.modal-header {
+    font-size: 24px;
+    font-weight: 300;
+}
+.space-head {
+    margin-top:40px;
+}
+.modal {
+    height:40%;
+}
+table.bordered > tbody > tr {
+    border-bottom: 1px solid #F0F0F0;
+}
+.modal p {
+    font-size: 13px;
+}
+.container-search {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.block {
+display: block;
+}
+
+.card-title, .collapsible-header {
+@extend .uppercase
+}
+
+.feature-icons {
+    font-size: 1.6rem;
+    margin-right: 15px;
+}
+.bgheader {
+  background:url('header2.jpg') no-repeat;
+  background-size: 100%;
+  height: auto;
 }
