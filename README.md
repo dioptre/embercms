@@ -7,7 +7,7 @@ EmberCMS: Meteor meets Ember.js meets a content management system. A fullstack j
 
 
 #Notes
-* This is a complete fullstack "javascript only" CMS
+* This is a complete fullstack "javascript only" CMS (Sails and Ember)
 * It's fairly basic at this stage, and is intended for users who are building applications in Ember.js to give their clients admin rights over content without needing to edit code while giving the developers the power to concentrate on app-building.
 * Should be good for developers who want to pass over a site to outsourcers who are only/experts familiar with javascript
 * Should be good for people who want to become experts at javascript full-stack
