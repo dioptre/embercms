@@ -1,7 +1,9 @@
 #EmberCMS 
 [Ember.js](http://emberjs.com/) Content Management System
 
-![EmberCMS](http://ecms.s3.amazonaws.com/pub_568b81391ae7569716b25d17_9515a3ab6ce843e88cf03f08c0a863c0_Screenshot+from+2016-01-04+23-48-15.png)
+EmberCMS: Meteor meets Ember.js meets a content management system. A fullstack javascript environment that can be setup in minutes, has the flexibility of Ember and Rails but with a single codebase. It's good for: outsourcing, as you only need to find one skill to maintain it; allows you the flexibility to add programmatic features; and gives clients the ability to make content and page changes. Comes with security and saving files to S3 built in (among other features) - so you can be up and running and have that consulting job done in a day.
+
+![EmberCMS](http://designregister.s3.amazonaws.com/own_56b55e2bb6c94c99070d3fb9_o_913fe1ed8d02411b960e59d175c96243_Screenshot+from+2016-01-04+23-48-46.png)
 
 
 #Notes
@@ -91,5 +93,5 @@ I may eventually replace the sails-auth/sails-permissions/ember-cli-materialize 
 
 [Licensed under the MIT license](http://www.opensource.org/licenses/mit-license.php)
 
-![EmberCMSR](http://ecms.s3.amazonaws.com/pub_568b814f1ae7569716b25d19_e08d5cf186804b599124f03e7dc6fc9d_Screenshot+from+2016-01-04+23-48-46.png)
+![EmberCMSR](http://designregister.s3.amazonaws.com/own_56b55e2bb6c94c99070d3fb9_o_43f3a32468884dab8e014de6c98917a6_Screenshot+from+2016-01-04+23-48-15.png)
 
