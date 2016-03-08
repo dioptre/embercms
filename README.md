@@ -83,6 +83,18 @@ COMMIT
 ##Bugs/Improvements
 I may eventually replace the sails-auth/sails-permissions/ember-cli-materialize dependencies with my own github links while the repos are in transition - clone the repos and edit the code if you have to then add something like this if you'd like to update any code immediately Ie. "public": "git://github.com/user/repo.git#ref". Let me know if you'd like me to merge your pull request.
 
+##Useful links
+http://mike.works/ember-cli-materialize/#/forms
+
+http://www.getmdl.io/styles/index.html
+
+https://s3.amazonaws.com/kantan-dresssed-demos/demos/ives/blue_preview/007_icons@fa-lightbulb-o%252F004_mdi_icons.html
+
+http://www.feedhenry.com/server-side-pdf-generation-node-js/
+
+http://stackoverflow.com/questions/25582382/sails-js-and-ember-js-nested-associations
+
+
 ##Thanks
 
 ...thanks to the many npm packages and source code used to help make this!
