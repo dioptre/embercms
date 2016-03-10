@@ -21,7 +21,7 @@ export default EmberUploader.FileField.extend({
 	      // S3 will return XML with url
 	      var uploadedUrl = $(response).find('Location')[0].textContent;
 	      uploadedUrl = decodeURIComponent(uploadedUrl); // => http://yourbucket.s3.amazonaws.com/file.png
-	      var arr = _this.get('uploadedUrls');		
+	      var arr = _this.get('uploadedUrls');
 	      arr.pushObject(uploadedUrl)
 	      _this.set('uploadedUrls', arr);
 	      _this.set('filesUploaded', _this.get('filesUploaded') + 1);
@@ -42,7 +42,7 @@ export default EmberUploader.FileField.extend({
 		var l = files.length;
 		if (l > 0) {
 			_this.set('uploadBusy', true);
-			_this.set('filesToUpload', l);			
+			_this.set('filesToUpload', l);
 		}
 	      	for (var i = 0; i < files.length; i++) {
 			if (/\.(png|jpg|jpeg)$/i.test(files[i].name)) {
@@ -54,24 +54,22 @@ export default EmberUploader.FileField.extend({
 					});
 					break;
 				}
-				
+
 				var img = new Image();
 				img.index = i;
 				img.src = window.URL.createObjectURL( files[i] );
-				img.onload = function() {
-				    var width = img.naturalWidth,
-					height = img.naturalHeight;
-				    window.URL.revokeObjectURL( img.src );
-				    if( width < 4800 && height < 4800 && files[this.index].size < 3000000 ) {
-					uploader.upload(files[this.index], {lastModified : files[this.index].lastModified, width : width, height: height});
+				img.onload = function(evt) {
+				    window.URL.revokeObjectURL( evt.srcElement.src );
+				    if( evt.srcElement.naturalWidth < 4800 && evt.srcElement.naturalHeight < 4800 && files[this.index].size < 3000000 ) {
+					         uploader.upload(files[this.index], {lastModified : files[this.index].lastModified, width : evt.srcElement.naturalWidth, height: evt.srcElement.naturalHeight});
 				    }
 				    else {
-					//fail
-					_this.container.lookup('route:application').Messenger.post({
-					  message: "Image too large, try reducing the image size (" + files[this.index].name + ")",
-					  hideAfter: 10,
-					  hideOnNavigate: true
-					});
+        					//fail
+        					_this.container.lookup('route:application').Messenger.post({
+        					  message: "Image too large, try reducing the image size (" + files[this.index].name + ")",
+        					  hideAfter: 10,
+        					  hideOnNavigate: true
+        					});
 				    }
 
 				};
@@ -84,7 +82,7 @@ export default EmberUploader.FileField.extend({
 				});
 				//uploader.upload(img.file
 			}
-			
+
 
 
 		};
