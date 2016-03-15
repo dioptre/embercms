@@ -29,6 +29,8 @@ EmberCMS: Meteor meets Ember.js meets a content management system. A fullstack j
 Takes about 30 minutes
 
 ##Prerequisites
+* Get a machine/virtual machine
+
 * node & npm [https://nodejs.org/en/download/package-manager/]
 ```
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
