@@ -27,12 +27,58 @@ EmberCMS: Meteor meets Ember.js meets a content management system. A fullstack j
 #Setup
 
 ##Prerequisites
-* node & npm
-* mongo & redis (for next stages)
-* ember-cli (npm install -g ember-cli)
-* sailsjs (npm install sails -g)
-* sanestack.com (npm install -g sane-cli@beta)
-* Amazon s3 account
+* node & npm [https://nodejs.org/en/download/package-manager/]
+```
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install -y build-essential
+```
+
+* mongo [https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/]
+Create a file /lib/systemd/system/mongodb.service with the following content:
+```
+[Unit]
+Description=High-performance, schema-free document-oriented database
+After=network.target
+
+[Service]
+User=mongodb
+ExecStart=/usr/bin/mongod --quiet --config /etc/mongodb.conf
+
+[Install]
+WantedBy=multi-user.target
+```
+Then install mongo:
+```
+echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+sudo apt-get update
+sudo apt-get install upstart-sysv
+sudo apt-get install -y mongodb-org
+sudo service mongod start
+```
+
+* redis (for next stages)
+```
+sudo apt-get install redis-server
+sudo apt-get install redis-tools
+```
+* ember-cli (sudo npm install -g ember-cli)
+* sailsjs (sudo npm install sails -g)
+* sanestack.com (sudo npm install -g sane-cli@beta)
+* Install bower (sudo npm install -g bower)
+
+##Setup the environment
+
+Then go into server directory and run:
+```
+npm install
+```
+Then go into client directory and run:
+```
+npm install
+bower install
+```
+* Get and setup your Amazon s3 account
 * This git repo/zipped into a working directory
 * ember-cli-materialize (http://mike.works/ember-cli-materialize/#/forms)... this is the only stable material design lite (MDL) implementation in Ember (and I believe I tested all of them), the templating could equally be done in bootstrap but was not what I wanted at the time as the MDL styling support exceeds that of BS (http://www.getmdl.io/styles/index.html)
 
@@ -44,7 +90,7 @@ EmberCMS: Meteor meets Ember.js meets a content management system. A fullstack j
 * /client/app/pods/component/template-*
 * /client/app/styles/app.scss
 
-##Setup the server (encryption,sendgrid emails, aws s3 photo storage):
+##Setup the plugins on the server (encryption,sendgrid emails, aws s3 photo storage):
 * /server/config/[jwt,sendgrid,aws].js
 
 ##Setup iptables if you're in docker or behind a firewall
