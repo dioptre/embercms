@@ -29,8 +29,7 @@ EmberCMS: Meteor meets Ember.js meets a content management system. A fullstack j
 Takes about 30 minutes
 
 ##Prerequisites
-* Get a machine/virtual machine
-Google has free credit atm [https://cloud.google.com/free-trial/?hl=en_US&_ga=1.149047295.830950489.1454537078]
+* Get a machine/virtual machine. Google has free credit atm [https://cloud.google.com/free-trial/?hl=en_US&_ga=1.149047295.830950489.1454537078]
 
 * node & npm [https://nodejs.org/en/download/package-manager/]
 ```
@@ -39,8 +38,7 @@ sudo apt-get install -y nodejs
 sudo apt-get install -y build-essential
 ```
 
-* mongo [https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/]
-Create a file /lib/systemd/system/mongodb.service with the following content:
+* mongo [https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/]. Create a file /lib/systemd/system/mongodb.service with the following content:
 ```
 [Unit]
 Description=High-performance, schema-free document-oriented database
@@ -53,7 +51,7 @@ ExecStart=/usr/bin/mongod --quiet --config /etc/mongodb.conf
 [Install]
 WantedBy=multi-user.target
 ```
-Then install mongo:
+* Then install mongo:
 ```
 echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 sudo apt-get update
