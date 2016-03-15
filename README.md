@@ -28,6 +28,18 @@ EmberCMS: Meteor meets Ember.js meets a content management system. A fullstack j
 
 Takes about 30 minutes
 
+**OR**
+
+Download the binary for google cloud:
+```
+https://storage.googleapis.com/embercms/embercms.tar.gz
+```
+
+Then follow the instructions here:
+```
+https://cloud.google.com/compute/docs/creating-custom-image#export_an_image_to_google_cloud_storage
+```
+
 ##Prerequisites
 * Get a machine/virtual machine. Google has free credit atm [https://cloud.google.com/free-trial/?hl=en_US&_ga=1.149047295.830950489.1454537078]
 
