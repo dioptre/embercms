@@ -36,9 +36,9 @@ Download the binary for google cloud:
 
 
 Then follow the instructions here:
-```
-https://cloud.google.com/compute/docs/creating-custom-image#export_an_image_to_google_cloud_storage
-```
+
+* https://cloud.google.com/compute/docs/creating-custom-image#export_an_image_to_google_cloud_storage
+
 
 ##Prerequisites
 * Get a machine/virtual machine. Google has free credit atm [https://cloud.google.com/free-trial/?hl=en_US&_ga=1.149047295.830950489.1454537078]
