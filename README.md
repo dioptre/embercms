@@ -31,9 +31,9 @@ Takes about 30 minutes
 **OR**
 
 Download the binary for google cloud:
-```
-https://storage.googleapis.com/embercms/embercms.tar.gz
-```
+
+* https://storage.googleapis.com/embercms/embercms.tar.gz
+
 
 Then follow the instructions here:
 ```
