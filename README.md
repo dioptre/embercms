@@ -30,6 +30,7 @@ Takes about 30 minutes
 
 ##Prerequisites
 * Get a machine/virtual machine
+Google has free credit atm [https://cloud.google.com/free-trial/?hl=en_US&_ga=1.149047295.830950489.1454537078]
 
 * node & npm [https://nodejs.org/en/download/package-manager/]
 ```
