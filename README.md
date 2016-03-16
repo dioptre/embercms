@@ -5,6 +5,8 @@ EmberCMS: Meteor meets Ember.js meets a content management system. A fullstack j
 
 ![EmberCMS](http://designregister.s3.amazonaws.com/own_56b55e2bb6c94c99070d3fb9_o_913fe1ed8d02411b960e59d175c96243_Screenshot+from+2016-01-04+23-48-46.png)
 
+##EmberSF Meetup Slides
+* https://docs.google.com/presentation/d/1x1yeo5sEGLFoGeWhQw3rpuJf52iHGbfsjN5JN9xn1PY/edit?usp=sharing
 
 #Notes
 * This is a complete fullstack "javascript only" CMS (Sails and Ember)
