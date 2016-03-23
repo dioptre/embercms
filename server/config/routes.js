@@ -49,7 +49,7 @@ module.exports.routes = {
     	sails.log.info(req.method, req.url);
     	next();
     },
-
+    //CHANGEME
     'POST /signup' : {controller : 'Auth', action: 'callback'},
     'GET /upload' : {controller : 'Amazon', action: 'sign'},
     'GET /isadmin' : {controller: 'User', action: 'isAdmin'},
