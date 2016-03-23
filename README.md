@@ -41,6 +41,13 @@ Then follow the instructions here:
 
 * https://cloud.google.com/compute/docs/creating-custom-image#export_an_image_to_google_cloud_storage
 
+##Quickstart
+* If you've been here before just run
+```
+grep -r CHANGEME
+``` 
+and make the updates to the critical configuration areas if you need.
+
 
 ##Prerequisites
 * Get a machine/virtual machine. Google has free credit atm [https://cloud.google.com/free-trial/?hl=en_US&_ga=1.149047295.830950489.1454537078]
