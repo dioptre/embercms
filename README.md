@@ -154,6 +154,24 @@ sane up --live-reload=false
 6. create sections for page content etc. and fill up your site
 7. if you want to extend your own site with custom code, check out /client/app/pods/components/template-header/template.hbs and /client/app/pods/s/company...
 
+#Deployment
+(From the SaneStack guys)
+```
+Note: This is still very much work in progress. We are planning to add an automated nginx container which will make it easy to instantly deploy the containerized app to your server.In the meantime find the old deployment readme (ignoring any of the possible Docker setup):
+Make sure you have npm i -g pm2 installed on your server
+Simply clone your app on the server
+Then you can use pm2 start app.js -- --prod in /server to starts sails in production mode on port 80
+ember build --environment=production --output-path=../server/assets/.
+That builds the app and copies it over to be included with Sails.
+pm2 restart app so Node can pick up the latest changes
+The Server is configured to serve the Ember App on all routes, apart from the api/** routes, so Ember itself can take full control of handling error routes, etc.For more information on deployment and different strategies check out:
+The Sails Documentation to read up about some fundamentals
+PM2 Deploy gives you some nice command line tools to ease deployment
+Ember-CLI Deploy for deployment via Redis and Amazon S3
+Hardening NodeJS for a proper Nginx setup
+Deis Heroku inspired workflow for your own servers built upon Docker
+```
+
 ##Bugs/Improvements
 I may eventually replace the sails-auth/sails-permissions/ember-cli-materialize dependencies with my own github links while the repos are in transition - clone the repos and edit the code if you have to then add something like this if you'd like to update any code immediately Ie. "public": "git://github.com/user/repo.git#ref". Let me know if you'd like me to merge your pull request.
 
