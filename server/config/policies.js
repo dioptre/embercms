@@ -16,6 +16,7 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.policies.html
  */
 
+//CHANGEME
 
 module.exports.policies = {
 
