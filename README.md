@@ -5,6 +5,8 @@ EmberCMS: Meteor meets Ember.js meets a content management system. A fullstack j
 
 ![EmberCMS](http://designregister.s3.amazonaws.com/own_56b55e2bb6c94c99070d3fb9_o_913fe1ed8d02411b960e59d175c96243_Screenshot+from+2016-01-04+23-48-46.png)
 
+##EmberSF Meetup Slides
+* https://docs.google.com/presentation/d/1x1yeo5sEGLFoGeWhQw3rpuJf52iHGbfsjN5JN9xn1PY/edit?usp=sharing
 
 #Notes
 * This is a complete fullstack "javascript only" CMS (Sails and Ember)
@@ -26,13 +28,74 @@ EmberCMS: Meteor meets Ember.js meets a content management system. A fullstack j
 
 #Setup
 
+Takes about 30 minutes
+
+**OR**
+
+Download the binary for google cloud:
+
+* https://storage.googleapis.com/embercms/embercms.tar.gz
+
+
+Then follow the instructions here:
+
+* https://cloud.google.com/compute/docs/creating-custom-image#export_an_image_to_google_cloud_storage
+
+
 ##Prerequisites
-* node & npm
-* mongo & redis (for next stages)
-* ember-cli (npm install -g ember-cli)
-* sailsjs (npm install sails -g)
-* sanestack.com (npm install -g sane-cli@beta)
-* Amazon s3 account
+* Get a machine/virtual machine. Google has free credit atm [https://cloud.google.com/free-trial/?hl=en_US&_ga=1.149047295.830950489.1454537078]
+
+* node & npm [https://nodejs.org/en/download/package-manager/]
+```
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install -y build-essential
+```
+
+* mongo [https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/]. Create a file /lib/systemd/system/mongodb.service with the following content:
+```
+[Unit]
+Description=High-performance, schema-free document-oriented database
+After=network.target
+
+[Service]
+User=mongodb
+ExecStart=/usr/bin/mongod --quiet --config /etc/mongodb.conf
+
+[Install]
+WantedBy=multi-user.target
+```
+* Then install mongo:
+```
+echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+sudo apt-get update
+sudo apt-get install upstart-sysv
+sudo apt-get install -y mongodb-org
+sudo service mongod start
+```
+
+* redis (for next stages)
+```
+sudo apt-get install redis-server
+sudo apt-get install redis-tools
+```
+* ember-cli (sudo npm install -g ember-cli)
+* sailsjs (sudo npm install sails -g)
+* sanestack.com (sudo npm install -g sane-cli@beta)
+* Install bower (sudo npm install -g bower)
+
+##Setup the environment
+
+Then go into server directory and run:
+```
+npm install
+```
+Then go into client directory and run:
+```
+npm install
+bower install
+```
+* Get and setup your Amazon s3 account
 * This git repo/zipped into a working directory
 * ember-cli-materialize (http://mike.works/ember-cli-materialize/#/forms)... this is the only stable material design lite (MDL) implementation in Ember (and I believe I tested all of them), the templating could equally be done in bootstrap but was not what I wanted at the time as the MDL styling support exceeds that of BS (http://www.getmdl.io/styles/index.html)
 
@@ -44,7 +107,7 @@ EmberCMS: Meteor meets Ember.js meets a content management system. A fullstack j
 * /client/app/pods/component/template-*
 * /client/app/styles/app.scss
 
-##Setup the server (encryption,sendgrid emails, aws s3 photo storage):
+##Setup the plugins on the server (encryption,sendgrid emails, aws s3 photo storage):
 * /server/config/[jwt,sendgrid,aws].js
 
 ##Setup iptables if you're in docker or behind a firewall
