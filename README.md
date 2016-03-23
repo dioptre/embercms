@@ -132,6 +132,10 @@ Add before filter section in /etc/ufw/before.rules(top of file):
 -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 4200
 COMMIT
 ```
+You may want to turn off auto-reload, Ie. 
+```
+sane up --live-reload=false
+```
 
 ##Setup Amazon
 * Setup IAM account that has s3 and lambda full access
