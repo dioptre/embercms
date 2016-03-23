@@ -1,5 +1,6 @@
 // set environment variables in production deployments to set secrets
 // use from global `sails.config.aws.access_key_id`
+//CHANGEME
 var crypto = require("crypto");
 var ObjectId = require('mongodb').ObjectID;
 var uuid = require('node-uuid');

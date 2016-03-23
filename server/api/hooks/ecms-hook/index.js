@@ -38,7 +38,7 @@ module.exports = function ecmsHook(sails) {
 		//Clear permissions - ensure sails-permissions fixtures don't #$%# with our security
 		console.log("///NEED TO MANUALLY CHANGE NODE_MODULES/SAILS_PERMISSIONS/DIST/HOOKS/INDEX (initializeFixtures resolve...permissions) TO PREVENT PERMISSIONS REWRITE");
 		promises.push(Permission.destroy({}).then());
-
+    //CHANGEME
 		Promise.all(promises)
 		.then(function (results) {
 			promises = [];
@@ -62,12 +62,12 @@ module.exports = function ecmsHook(sails) {
 		   sails.log(err);
 		   cb(err);
 		});
-		
-		
+
+
 		//PermissionService.grant({role: 'collaborator', model: 'Issue', action: 'update', criteria: { where: { public: true }, blacklist: ['public'] } })
 		// Finish initializing custom hook
 		// Then call cb()
-		
+
 
 	   });
        }
@@ -80,4 +80,3 @@ module.exports = function ecmsHook(sails) {
    }
 
 };
-

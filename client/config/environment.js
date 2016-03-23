@@ -1,5 +1,5 @@
 /* jshint node: true */
-
+//CHANGEME
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'client',

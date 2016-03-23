@@ -1,7 +1,14 @@
 <div class="basic-page basic-message">
-    <h3>Something went wrong...</h3>
-    <br>
-    <span>You may need more privileges. If the problem persists, please contact your administrator.</span>
-    <br><br>
-    {{#unless loggedIn}}{{#link-to 'login' tagName='button' class="btn"}}Login{{/link-to}}{{/unless}}
+    {{#unless loggedIn}}
+      <h3>Please log back in...</h3>
+      <br>
+      <span>Login to continue browsing.</span>
+      <br><br>
+      {{#link-to 'login' tagName='button' class="btn"}}Login{{/link-to}}
+    {{else}}
+      <h3>Something went wrong...</h3>
+      <br>
+      <span>You may need more privileges. If the problem persists, please refresh your browser or contact your administrator.</span>
+      <br><br>
+    {{/unless}}
 </div>
